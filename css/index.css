@@ -98,8 +98,7 @@ a:hover {
   padding: 50px;
   height: 100%;
 }
-.col p,
-.col h1 {
+.col p {
   max-width: 460px;
 }
 .left {
@@ -192,9 +191,6 @@ a:hover {
   }
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
-  h1 {
-    display: inline-block;
-  }
   .container {
     position: relative;
   }
@@ -203,13 +199,10 @@ a:hover {
     display: block;
     position: relative;
     height: initial;
+    width: auto;
   }
   .col {
     float: none;
-  }
-  .col p,
-  .col h1 {
-    max-width: none;
   }
   .col.left,
   .col.right {
@@ -217,6 +210,10 @@ a:hover {
     text-align: left;
     height: auto;
     width: 100%;
-    background: rgba(0,0,255,0.5);
+    background: rgba(255,255,0,0.5);
+  }
+  .col.left p,
+  .col.right p {
+    max-width: none;
   }
 }
