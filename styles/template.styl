@@ -65,39 +65,41 @@ a
   width: 50%
   padding: 50px
   height: 100%
+  p, h1
+    max-width: 460px
+
+
 .left
   text-align: right
   width: 45%
 .right
   text-align: left
   width: 55%
-  p
-    max-width: 460px
 
 
 //animation
 
-// .animate
-//   transition-property: transform, opacity
-//   transition-duration: .6s
-//   opacity: 1
-//   transform: translate3d(0, 0, 0)
-//   transform: translateX(0)
-//   transition-timing-function: ease-out
+.animate
+  transition-property: transform, opacity
+  transition-duration: .6s
+  opacity: 1
+  transform: translate3d(0, 0, 0)
+  transform: translateX(0)
+  transition-timing-function: ease-out
 
-// .load-left, .load-right
-//   opacity: 0
+.load-left, .load-right
+  opacity: 0
 
-// .load-left
-//   transform: translateX(15px)
+.load-left
+  transform: translateX(15px)
 
-// .load-right
-//   transform: translateX(-15px)
+.load-right
+  transform: translateX(-15px)
 
-// .delay-1
-//   transition-delay: 0.1s
-// .delay-2
-//   transition-delay: 1s
+.delay-1
+  transition-delay: 0.1s
+.delay-2
+  transition-delay: 1s
 
 // media queries
 
@@ -125,11 +127,12 @@ a
     height: initial
   .col
     float: none
+    p, h1
+      max-width: none
     &.left, &.right
       display: block
       text-align: left
       height: auto
       width: 100%
-      background: rgba(salmon, .5)
-      p
-        max-width: none
+      background: rgba(lightgreen, .5)
+      
