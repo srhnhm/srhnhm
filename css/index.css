@@ -45,6 +45,9 @@ ul {
   font-weight: bold;
   src: url("../fonts/BentonSans-Bold.otf");
 }
+body {
+  -webkit-text-size-adjust: 100%;
+}
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -191,6 +194,10 @@ a:hover {
   }
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+  p,
+  h1 {
+    font-size: 24px;
+  }
   .container {
     position: relative;
   }
@@ -210,7 +217,7 @@ a:hover {
     text-align: left;
     height: auto;
     width: 100%;
-    background: rgba(0,0,255,0.5);
+    background: rgba(0,255,255,0.5);
   }
   .col.left p,
   .col.right p {

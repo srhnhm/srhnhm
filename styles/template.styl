@@ -11,8 +11,8 @@
 }
 
 
-// body
-//   -webkit-text-size-adjust: none
+body
+  -webkit-text-size-adjust: 100%
 
 *
   box-sizing: border-box
@@ -121,6 +121,9 @@ a
       width: 100%
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx)
+  p, h1
+    font-size: 24px
+
   .container
     position: relative
   .content-wrapper, .content
@@ -135,6 +138,6 @@ a
       text-align: left
       height: auto
       width: 100%
-      background: rgba(blue, .5)
+      background: rgba(cyan, .5)
       p
         max-width: none
