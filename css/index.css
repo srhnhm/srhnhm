@@ -46,7 +46,7 @@ ul {
   src: url("../fonts/BentonSans-Bold.otf");
 }
 body {
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: none;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -213,7 +213,7 @@ a:hover {
     text-align: left;
     height: auto;
     width: 100%;
-    background: rgba(165,42,42,0.5);
+    background: rgba(0,255,255,0.5);
   }
   .col.left p,
   .col.right p {
