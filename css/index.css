@@ -192,6 +192,9 @@ a:hover {
   }
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+  h1 {
+    display: inline-block;
+  }
   .container {
     position: relative;
   }
