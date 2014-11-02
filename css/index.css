@@ -196,7 +196,7 @@ a:hover {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
   p,
   h1 {
-    font-size: 24px;
+    font-size: 36px;
   }
   .container {
     position: relative;
