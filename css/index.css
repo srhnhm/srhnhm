@@ -145,6 +145,7 @@ a:hover {
     text-align: left;
     height: auto;
     width: 100%;
+    background: rgba(250,128,114,0.5);
   }
   .col.left p,
   .col.right p {
