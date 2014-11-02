@@ -198,7 +198,7 @@ a:hover {
   .content {
     display: block;
     position: relative;
-    height: auto;
+    height: initial;
   }
   .col {
     float: none;
