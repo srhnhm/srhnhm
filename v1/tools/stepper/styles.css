@@ -1,0 +1,91 @@
+/**
+ * Demo page styles, all list scroll effects styles are in sctroll.css
+ */
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	/*background: #323232;*/
+	font-family: 'Helvetica', sans-serif;
+	font-size: 12px;
+	color: #eee;
+	/*margin-bottom: 40px;*/
+	line-height: 1;
+}
+
+#footer {
+	width:100%;
+	padding:10px;
+	font-size:14px;
+	position:fixed;
+	bottom:0px;
+	color:#fff;
+	background-color:#000;
+	z-index:100000;
+}
+
+div#footer div {
+	display:inline-block;
+	margin:0px 2px;
+	padding:5px;
+}
+div.button {
+	min-width:35px;
+	text-align:center;
+	background-color:#4d4d4d;
+	color:cyan;
+}
+div.button:hover {
+	cursor:pointer;
+	color:blue;
+	background-color:#ccc;
+}
+
+div#controls div.selected {
+	background-color:cyan;
+	color:#4d4d4d;
+}
+
+/**
+ * List used for the demo page
+ */
+
+#main {
+	position:relative;
+}
+
+ul {
+	position: fixed;
+	/*width: 240px;*/
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	list-style: none;
+	/*background-color:#323232;*/
+}
+	ul li {
+		position: relative;
+		/*height:30px;*/
+		/*background: #eee;*/
+		color: #252525;
+		font-size: 18px;
+		z-index: 2;
+		/*background-image:url('static.png');*/
+		/*background-image:url('http://farm8.staticflickr.com/7037/6834542784_dc429a68b5_o.png');*/
+		overflow:hidden;
+	}
+	ul li:nth-child(odd) {
+	}
+
+
+.scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
+}

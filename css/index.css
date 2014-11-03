@@ -193,7 +193,7 @@ a:hover {
     width: 100%;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+@media (-webkit-min-device-pixel-ratio: 2) and (max-width: 1000px), (min-resolution: 192dppx) {
   p {
     font-size: 36px;
   }

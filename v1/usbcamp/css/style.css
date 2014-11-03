@@ -1,0 +1,252 @@
+body {
+	background:black;
+	color:#c8c8c8;
+	font-family: "arial", "sans-serif";
+	font-size: 11pt;
+	line-height:14pt;
+}
+
+a:link {
+	color:gray;
+	text-decoration:none;
+}
+
+
+a:hover {
+	color:white;
+	text-decoration:underline;
+}
+
+a:visited {	
+	color:gray;
+	text-decoration:none;
+}
+
+img {
+	margin:0px;
+	padding:0px;
+	border-collapse:collapse;
+}
+
+h1 {
+	font-family: 'Oswald', "arial", "sans-serif"; 
+	font-size: 250%;
+}
+
+h3 {
+	color:white;
+	margin:0px;
+	padding:0px;
+	font-family: "arial", "sans-serif"; 
+	letter-spacing:0px;
+	font-size: 28pt
+	text-decoration:none;	
+}
+
+hr {
+	margin:0px;
+	padding:0px;
+	border-collapse:collapse;
+}
+
+div.main {
+	width:400px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+
+.col1 {
+	width:400px;
+	text-align:center;
+	display:inline;
+	margin: 20px 0px 40px 0px;
+	position:relative;
+	float:left;
+	
+}
+
+
+.designHide {
+	display:none;
+	width:0px;
+	position:relative;
+	float:left;
+
+
+}
+
+
+.designShow {
+	display:block;
+	width:800px;
+	position:relative;
+	float:left;
+
+
+
+}
+
+
+.photosHide {
+	display:none;
+	width:0px;
+	position:relative;
+	float:left;
+
+
+}
+
+
+.photosShow {
+	display:block;
+	width:800px;
+	position:relative;
+	float:left;
+
+
+}
+
+div.header {
+	height:225px;
+
+}
+
+span.spacer {
+	display:block;
+	height:20px;
+}
+
+img.button {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.nav {
+	display:block;
+}
+
+#design {
+	
+}
+
+#history {
+	
+}
+
+#photos {
+	
+}
+
+#vision {
+	
+}
+
+#gratitude {
+	
+	
+}
+#donate {
+	
+}
+
+#home {
+	
+}
+
+#design_content {
+	
+}
+
+#photos_content {
+	
+}
+
+.navOn {
+	background:#D9FFFF;
+}
+
+#footer {
+
+}
+
+#about {
+	
+}
+
+#contact {
+	
+}
+div.content {
+
+	margin: 20px 0px 40px 0px;
+	text-align:left;
+
+
+}
+
+div.col2_content {
+	text-align:left;
+	padding: 20px 0px 30px 30px;	
+}
+
+
+
+
+#about_content {
+}
+
+#contact_content {
+}
+
+
+.hidden {
+	display: none;
+}
+
+.centered {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+div#flickr a.lightbox img {
+	border: 1px solid #ffffff;
+	margin: 0px 20px 20px 0px;
+
+	
+}
+
+
+img.designImages {
+	float:left;
+	width:45%;
+	margin-right:20px;	
+	margin-bottom:20px;
+}
+
+div.gratEntry {
+	display:inline;
+	margin-bottom:5px;
+	width:400px;
+	
+}
+
+img.gratPhoto {
+	height:120px;
+	width:120px;
+	display:inline;
+	float:left;
+}
+
+div.gratText {
+	display:inline-block;
+	margin-left:20px;
+	height:120px;
+	width:250px;
+}
+

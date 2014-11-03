@@ -1,0 +1,182 @@
+body {
+	overflow-x:hidden;
+	font-family:"Helvetica", sans-serif;
+}
+
+h1, h2, h3 {
+	margin:0px;
+	padding:0px;
+}
+
+h3 {
+
+	font-size:14px;
+	font-weight:bold;
+	line-height:22px;
+	text-align:center;
+}
+
+div#legend {
+	height:auto;
+	width:145px;
+	padding:20px 20px;
+	position:relative;
+	z-index:5;
+	top:0px;
+	left:0px;
+	position:absolute;
+	background-color:rgba(0, 0, 0, .8);
+	color:white;
+}
+
+div#legend div {
+	display:inline-block;
+	float:left;
+}
+
+div#canvas {
+	height:110%;
+	width:110%;
+	line-height:1em;
+	border:1px solid gray;
+	word-wrap:break-word;
+	position:absolute;
+	z-index:0;
+	top:0px;
+	left:0px;
+	overflow:hidden;
+}
+
+div.palette {
+	border:2px solid white;
+	padding:2px;
+	height:18px;
+	width:18px;
+	margin:5px;
+	float:left;
+	display:inline-block;
+}
+
+div.char {	
+	background-color:#eee;
+	color:#4d4d4d;
+	font-size:15px;
+}
+
+div.char:hover {
+	cursor:pointer;
+}
+
+div.color {
+
+}
+
+::selection {
+	color:white;
+	background-color:black;
+}
+::-moz-selection {
+	color:white;
+	background-color:black;
+}
+
+hr {
+	width:100%;
+	clear:both;
+	display:inline-block;
+	margin:10px 0px;
+}
+
+div.colorpalette {
+	height:18px;
+	display:block;
+	margin:5px 0px 5px 20px;
+	border:2px solid white;
+	width:40px;
+	display:inline-block;
+	float:left;
+}
+
+div.colorpalette:hover{
+	cursor:pointer;
+}
+
+div.colorpalette div {
+	height:100%;
+	float:left;
+	display:inline-block;
+
+}
+
+div.scale-bottom {
+	width:100px;
+	height:25px;
+	background-color:#4d4d4d;
+}
+div.scale-top {
+	float:left;
+	height:100%;
+	width:50px;
+	max-width:100%;
+	background-color:#ccc;
+}
+
+div.selected {
+	border-color: #07FFAC;
+}
+
+div.input {
+	display:inline-block;
+	width:100%;
+	clear:both;
+	font-size:12px;
+	color:#ccc;
+	margin:5px 0px;
+}
+
+label {
+	float:left;
+	width:80px;
+	text-align:left;
+	margin-right:10px;
+	display:inline-block;
+	text-transform:uppercase;
+	font-size:11px;
+	line-height:20px;
+	text-align:bottom;
+}
+
+input {
+	width:50px;
+	height:20px;
+	float:left;
+	display:inline-block;
+	background-color:#4d4d4d;
+	border:1px solid white;
+	color:white;
+	font-size:12px;
+	letter-spacing:1px;
+	font-weight:bold;
+	padding:5px;
+}
+
+span.unicode {
+	line-height:1em;
+}
+
+button{
+	width:100%;
+	height:30px;
+	background-color:#000;
+	color:#fff;
+	font-size:11px;
+	letter-spacing:1px;
+	text-transform:uppercase;
+	border:1px solid white;
+}
+
+button:hover {
+	cursor:pointer;
+	color:#4d4d4d;
+	background-color:#07FFAC;
+}
