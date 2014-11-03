@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	
+	<link rel="stylesheet" href="style.css"/>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>	
+	
+	<script type="text/javascript" src="http://masonry.desandro.com/jquery.masonry.min.js"></script>
+	
+	<style>
+		div#container {
+			width:280px;
+			margin-left:auto;
+			margin-right:auto;
+
+		}
+		
+		.left {
+			position:relative;
+			display:block;
+			clear:right;
+			float:left;
+			margin-top:50px;
+			
+		}
+		
+		.right {
+			position:relative;
+			display:block;
+			float:right;
+			margin-top:400px;
+			
+
+		}
+		
+	</style>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			alert("inside js!");
+			
+     	$(window).scroll(function() {
+				if($(window).scrollTop()>($(document).height() - $(window).height() - 10)) {
+					$('div#container').append('<div class=\"footprint left\"> <img src=\"images/left.png\" /></div><div class=\"footprint right\"> <img src=\"images/right.png\" /></div><div class=\"footprint left\"> <img src=\"images/left.png\" /></div><div class=\"footprint right\"> <img src=\"images/right.png\" /></div>');
+				}
+			});
+
+			$('#scrollbutton').click( function() {
+				alert("clicked");
+
+				$('div#container').append('<div class=\"footprint left\"> <img src=\"images/left.png\" /></div><div class=\"footprint right\"> <img src=\"images/right.png\" /></div><div class=\"footprint left\"> <img src=\"images/left.png\" /></div><div class=\"footprint right\"> <img src=\"images/right.png\" /></div>');
+			});
+		});
+
+	</script>
+
+	
+	
+</head>
+
+
+<body>
+
+	<div id="container">
+
+		<div class="footprint left"> <img src="images/left.png" /></div>
+		<div class="footprint right"><img src="images/right.png" /></div>
+		<div class="footprint left"> <img src="images/left.png" /></div>
+		<div class="footprint right"><img src="images/right.png" /></div>
+
+
+
+	</div>
+	
+	<div style="display:block; clear:both; width:300px; margin-left:auto; margin-right:auto"><button id="scrollbutton" >Click for more footsteps</button></div>
+	
+
+</body>
+
+
+
+
+</html>
