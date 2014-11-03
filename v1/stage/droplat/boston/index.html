@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Watercolor Maps</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+    <script type="text/javascript" src="http://use.typekit.com/uev7pwt.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+  </head>
+  <body>
+        <div id="header" class="section">
+            <div class="headline" id='title'></div>
+            <div class="accent" id="attribution">Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.</div>
+
+            
+            <div class="headline menu" id="change">Change City
+            </div> 
+            <div class="headline menu" id='about'>about</div>
+
+             <div id="citylist" class=""><ul></ul> </div>
+
+            <div id="callout">
+                <div id="featured"></div>
+            </div>
+
+        </div>   
+
+        <div class="section"><div id="map"></div></div>
+       
+        <div id="stream" class="section">
+            <div id="streaming"></div>
+        </div>
+
+    
+
+    <script src="../mm.js"></script>
+    <script type="text/javascript" src="../droplet.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Color Coordinates</title>
+    <meta property="og:title" content="Color Coordinates" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="http://colorcoordinates.bysubset.com" />
+    <meta property="og:image" content="http://colorcoordinates.bysubset.com/imgs/fbthumb00.png" />
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+    <script type="text/javascript" src="http://use.typekit.com/uev7pwt.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+        <div id="header" class="section">
+
+            <div class="headline menu">
+                <a href="https://twitter.com/share?url=http%3A%2F%2Fcolorcoordinates.bysubset.com&text=" target="_blank"><img style="max-height:1.5em"  src="appbar.twitter.bird.png"/></a>
+            </div>
+
+            <div class="headline menu">
+                <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcolorcoordinates.bysubset.com" target="_blank"><img style="max-height:1.5em"  src="appbar.facebook.png"/></a>
+            </div>
+            
+            <div class="headline menu" id='change'>Change City</div>    
+            <div class="headline menu" id='about'>about</div>
+            <div class="accent" id="attribution">Map tiles by <a href="http://stamen.com" target="_blank">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0" target="_blank">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_blank">CC BY SA</a>.
+            </div> 
+
+
+        </div>  
+
+        <div id="boxes"  class="section">
+            <div id='aboutPopup' style="display:none">
+                <div>
+                    Tweets mentioning colors are plotted on their coordinates of origin. Inspired by the watercolor map tiles released by <a href="http://stamen.com/" target="_blank">Stamen Design</a>, each tweet is marked with a colored ink droplet that seeps into place. Why "paint the town red", literally? We were curious about how perceptual qualities - like colors - fit in to the digital/physical in-between of geolocated datapoints. Built with <a href="http://www.modestmaps.com" target="_blank">Modest Maps</a> and <a href="http://www.modestmaps.com" target="_blank">d3</a>.
+                    <br/><br/>
+                    <span class="accent" style="line-height:1em">
+                        <!-- Built with 
+                        <a href="http://www.modestmaps.com" target="_blank">Modest Maps</a> and <a href="http://www.modestmaps.com" target="_blank">d3</a>. -->
+                        <!-- <br/>
+                        Benefitting from the 
+                        <a href="http://www.modestmaps.com" target="_blank">twitter search api</a> -->
+                        See more: <a href="http://bysubset.com" target="_blank">work.bysubset.com</a>
+                    </span>
+                </div>
+            </div>
+             <div id="citylist" style="display:none"><ul></ul> </div>
+            <div id="callout">
+                 <div class="headline" id='title'></div>
+                <div id="featured"></div>
+            </div>
+        </div>   
+
+        <div class="section"><div id="map"></div></div>
+       
+        <div id="stream" class="section">
+            <div id="streaming"></div>
+        </div>
+
+    
+
+    <script src="mm.js"></script>
+    <script type="text/javascript" src="droplet.js"></script>
+    <script type="text/javascript" src="behaviors.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,272 @@
+body, h1, h2, h3, h4, h5, h6 {
+	margin:0px;
+	padding:0px;
+	background-color:#f1f5f8;
+	color:#4d4d4d;
+	font-family: 'Garamond', 'Georgia', serif;
+	font-size:1em;
+}
+
+div {
+	position:relative;
+	display:inline-block;
+}
+
+svg#output {
+    z-index:50;
+}
+
+.section {
+	display:block;
+	clear:both;
+	min-width:960px;
+	width:90%;
+}
+
+
+div#header > div {
+	float:right;
+	/*background-color:black;*/
+	color:#4d4d4d;
+	padding:0px 10px;
+	border-left:2px solid #ccc;
+}
+
+div#header > div#title {
+	position:absolute;
+	left:5%;
+	padding-top:8px;
+	width:8%;
+	line-height:1.35em;	
+}
+
+div#header > div#attribution {
+	float:left;
+	margin-left:15%;
+	line-height:2.5em;
+}
+
+
+div#header > div#callout {
+	min-width: 	340px;
+	top: 350px;
+	left: 5%;
+	background-color: #F1F5F8;
+	z-index: 100;
+	position: absolute;
+	line-height: 1.35em;
+	padding: 0.75em;
+	min-height: 100px;
+}
+
+
+.menu:hover {
+	background-color:white;
+	cursor:pointer;
+	-webkit-transition-property: background-color;  
+    -webkit-transition-duration: 300ms;  
+}
+
+
+div#header > div#citylist {
+	z-index:1000000;
+	position:absolute;
+	right: 0;
+	top: 27px;
+	padding: 0px;
+	width: 15%;
+	height:0px;
+	overflow:hidden;
+	display:none;
+}
+
+div#citylist > ul {
+	list-style-type: none;
+	background-color: #F1F5F8;
+	margin:0px;
+	padding:0px;
+}
+
+div#citylist > ul > a > li {
+	text-align:left;
+	display:block;
+	border-top:2px solid #CCC;
+	line-height: 4em;
+	padding: 0px 5%;
+}
+
+div#citylist > ul > a {
+	text-decoration:none;
+}
+div#citylist > ul > a:hover {
+	text-decoration:underline;
+}
+
+
+
+
+div#map {
+	margin-left:15%;
+	width:85%;
+	height:500px;
+
+}
+
+div#streaming {
+	position:absolute;
+	left:5%;
+	top:0px;
+	width:95%;
+	padding:0px 0px;
+	overflow-x:hidden;
+	padding-bottom:80px;
+}
+
+div#streaming > div {
+	float:left;
+	left:0;
+	width:1000%;
+	clear:both;
+	display:inline-block;
+}
+
+div.tweetBar {
+	height:0px;
+	width:100%;
+	line-height:3em;
+	overflow:hidden;
+}
+
+
+div.colorStream {
+	min-height:4em;
+	height:4em;
+	line-height:4em;
+	clear:both;
+	display:inline-block;
+	font-family: 'proxima-nova', sans-serif;
+	text-transform:uppercase;
+	font-size:11px;
+	letter-spacing:1px;
+	margin-top:2px;
+	border-bottom:2px solid #ccc;
+}
+
+div.colorStream > div {
+	float:left;
+	height:inherit;
+	display:inline-block;
+	overflow:hidden;
+	text-overflow: clip;
+	-webkit-transition-property: background-color;  
+    -webkit-transition-duration: 300ms;  
+
+}
+div.colorStream > div:hover {
+	cursor:pointer;
+}
+
+div.colorStream > div > div.accent {
+	float:left;
+	display:inline-block;
+	width:auto;
+	height:inherit;
+	border-left:1px solid #ccc;
+	padding:0px 10px;
+	text-wrap:no-wrap;
+	overflow:hidden;
+	text-overflow: clip;
+}
+
+
+
+
+div.tweetList > ul {
+	list-style-type:none;
+	margin: 0px;
+	padding: 0px;
+}
+
+div.tweetList > ul > li {
+	float: left;
+	font-size: 13px;
+	letter-spacing: 1px;
+	color: white;
+	line-height: 2em;
+	margin-left: 13px;
+	font-style: italic;
+
+}
+
+/*div.tweetList > ul > li > span {
+	font-family: 'proxima nova';
+	text-transform: uppercase;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 13px;
+}*/
+
+
+/*  TYPOGRAPHY  */
+h1 {
+	font-weight:normal;
+	
+}
+.headline {
+	font-family: 'proxima-nova', sans-serif;
+	text-transform:uppercase;
+	font-size:13px !important;
+	letter-spacing:2px;
+	line-height:200%;
+}
+
+.accent {
+	font-family: 'proxima-nova', sans-serif;
+	text-transform:uppercase;
+	font-size:11px;
+	letter-spacing:1px;
+	line-height:4em;
+}
+
+a {
+	color:#777;
+}
+
+.count {
+	width:14px;
+    font-weight:bold;
+
+}
+
+div#featured {
+	height: 100px;
+	width:340px;
+	position:absolute;
+}
+div#featured > div {
+	color:#777;
+	bottom:0px;
+	position:absolute;
+}
+
+span.username {
+	color: inherit;
+	font-family: 'proxima nova';
+	text-transform: uppercase;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 13px;
+	margin-right:5px;
+}
+
+span.date {
+	font-family: 'proxima nova';
+	text-transform: uppercase;
+	font-style: normal;
+	font-size: 11px;
+}
+
+
+.hidden {
+	display:none;
+}
