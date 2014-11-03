@@ -1,0 +1,71 @@
+<html>
+	<head>
+		
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+		
+		<title>imgstepper</title>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+
+				
+		<link rel="stylesheet" type="text/css" href="stroll.css">
+		<script type="text/javascript" href="stroll.js"></script>
+	
+		<link rel="stylesheet" href="styles.css">
+		
+	</head>
+
+	<body>
+		<div id="main"></div>
+		<div id="footer">
+
+			<div id="controls">
+				<div class="button">papercut</div>
+				<div class="button">flip</div>
+				<div class="button">fly</div>
+				<div class="button">fly-reverse</div>
+				<div class="button">skew</div>
+				<div class="button">helix</div>
+				<div class="button">wave</div>
+				<div class="button">fan</div>
+				<div class="button">tilt</div>
+				<div class="button">curl</div>
+				<div class="button">zipper</div>
+				<div class="button">fade</div>
+				<div class="button">twirl</div>
+			</div>
+
+			<div id="sizes">
+				<label>width: </label>
+				<input id="barwidth" type='text' style="width:40px"/>px
+				<label>height: </label>
+				<input id="barheight" type='text' style="width:40px"/>px
+				<div id="resize" class="button" >resize</div>
+			</div>
+
+			<div id="change-image">
+				<label>imgURL: </label>
+				<input id="imageURL" type='text' />
+				
+				<label>imgCol: </label>
+				<input id="imageColor" type='text' style="width:48px"/>
+
+				<input type="checkbox" id="showscrollbars" />show scrollbars<br />
+
+				<label>bgdURL: </label>
+				<input id="backgroundURL" type='text' />
+
+				<label>bgdCol: </label>
+				<input id="backgroundColor" type='text' style="width:48px"/>
+
+				<div id="reset" class="button">reset</div>
+			</div>
+			<div>
+				<div id="getURL" class="button" style="width:140px">get URL</div>
+			</div>
+		</div>
+		<script src="init.js"></script>
+	</body>
+
+</html>
