@@ -1,0 +1,276 @@
+<html>
+	<head>
+		
+		<title>Page History</title>
+		<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		
+		<style>
+		
+
+
+			svg#main {
+				height:2000;
+			}
+			svg:g {
+				position:absolute;
+			}
+
+
+
+			div#list {
+				height:10000;
+				width:100000;
+				overflow-x:scroll;
+			}
+			ul.listmonth {
+				display:inline-block;
+				float:left;
+				width:110px;
+				padding:0;
+				margin:0;
+			}
+			ul.listsection {
+				display:inline-block;
+				float:left;
+				padding:0;
+				margin:2px;
+				border-bottom:1px solid gray;
+				width:100%;
+			}
+			li.listedit {
+				width:100%;
+				height:10px;
+				/*border:3px solid black;*/
+				overflow:hidden;
+				padding:2px 0px;
+				font-size:10px;
+				text-transform:uppercase;
+			}
+
+
+		</style>
+	
+	</head>
+
+	<body>
+		<div id='info' style='height:100px'>Loading...</div>
+		<svg id="main"></svg>
+<!-- 		<svg id="circles"></svg> -->
+		<div id="list"></div>
+		
+
+		<script type="text/javascript" src="data.js"></script>
+		<script type="text/javascript">
+
+			var daterange = [[parseInt(datemin.substring(0,4)), parseInt(datemin.substring(5,7))], [parseInt(datemax.substring(0,4)), parseInt(datemax.substring(6,7))]]
+
+			var colormap = ["#8BC6AC", "#6FA6D8", "#75C6D3", "#B0A1B7", "#E5A788", "#D6CF8E", "#84B2AF", "#A1AD76", "#C69B9B", "#94ACDD", "#C2C97F", "#8A91B5", "#77777F", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue"]
+
+			var main = d3.select("#main")
+
+			var linepaths = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+			var count = -1;
+			var xoffset = 10
+			var yoffset = 10
+
+			var circular = false;
+			var square = false;
+			var rectangular = true;
+
+
+			var scale = 10
+
+			if (rectangular == true) {
+				var width = scale*4
+				 // scale = scale/2
+			} else {
+				var width = scale
+			}
+			var xspacer = 2;
+			var yspacer = 2;
+
+
+			function visualizeMonth(lookup) {
+				var sum = yoffset;
+
+
+				var months = main.append('svg:g')
+					.attr('class', 'month')
+					.attr('transform', function(d, i) {
+						count++;
+						// linepaths.push([]);
+						return "translate("+((count*(width+xspacer))+xoffset)+", 0)";
+					})
+					.selectAll('g.section')
+					.data(data[lookup])
+					.enter()
+					.append('g')
+					.attr('class', 'section')
+					.attr('transform', function(d, i) {
+						var offset = sum 
+						sum += (d.length*(scale+yspacer))
+						// linepaths.push([])			
+						linepaths[i].push([((count*(width+xspacer))+xoffset), sum]);
+						return "translate(0, "+offset+")"
+					})
+					.style('background-color', function(d, i) {
+						return colormap[i]
+					});
+
+				if (circular == true) {
+					var edits = months
+						.selectAll('circle.edit')
+						.data(function(d, i) {
+							return d;
+						})
+						.enter()
+						.append('circle')
+						.attr('class', 'edit')
+						.attr('cx', 0)
+						.attr('cy', 0)
+						.attr('r', scale/2)	
+						.attr('transform', function(d, i) {
+						return "translate(0, "+(i*(scale+yspacer))+")"
+					})
+				} else if (square == true) {	
+					var edits = months
+						.selectAll('rect.edit')
+						.data(function(d, i) {
+							return d;
+						})
+						.enter().append('rect')
+						.attr('class', 'edit')
+						.attr('width', scale)
+						.attr('height', scale)
+						.attr('transform', function(d, i) {
+						return "translate(0, "+(i*(scale+yspacer))+")"
+					})
+				} else if (rectangular == true) {
+					var edits = months
+						.selectAll('rect.edit')
+						.data(function(d, i) {
+							return d;
+						})
+						.enter().append('rect')
+						.attr('class', 'edit')
+						.attr('width', scale*4)
+						.attr('height', scale)
+						.attr('transform', function(d, i) {
+						return "translate(0, "+(i*(scale+yspacer))+")"
+					})
+				}
+					
+				edits.attr('fill', function(d, i) {
+						if (d.revert == null) {
+							for (var c=0; c<contentsarr.length; c++){
+								if ((d.sectionnumber != "-1") && (d.sectionnumber == contentsarr[c])) {
+									return colormap[c];
+								} 
+								else if (d.sectionnumber == "-1") { return '#77777F'}
+							}
+							
+						} else {return "rgba(189, 189, 198, 1)";}
+					})
+					.attr('stroke', function(d, i) {
+						if (d.user.charAt(0).isNumber == true)  {
+							stroke
+						}
+					})
+					.on('mouseover', function(d) {
+						var str = ''
+						// str=str+"abstime: "+d.abstime+"\n\n"
+						// str=str+"anon: "+d.anon+"\n"
+						// str=str+"abstime: "+d.abstime+"\n\n"
+						// str=str+"comment: "+d.comment+"\n\n"
+						// str=str+"revert: "+d.revert+"\n\n"
+						str=str+"section: "+d.section+"\n\n"
+						str=str+"sectionnumber: "+d.sectionnumber+"\n\n"
+						$('div#info').html(''+str)
+					})
+
+	
+
+			}
+
+
+			function visuzalizeList(lookup) {
+				var listofmonths = d3.select('div#list')
+					.append('ul')
+					.attr('class', 'listmonth')
+					.text(lookup)
+					.selectAll('ul.listsection')
+					.data(data[lookup])
+					.enter()
+					.append('ul')
+					.attr('class', 'listsection')
+					.style('background-color', function(d, i) {
+						return colormap[i]
+					})
+					
+				var listofedits = listofmonths.selectAll('li.listedit')
+					.data(function(d) {return d;})
+					.enter()
+					.append('li')
+					.attr('class', 'listedit')
+					.text(function(d) {return d.sectionnumber+" "+d.section})
+					.style('background-color', function(d) {
+						if (d.revert == null) {
+							return "transparent";
+						} else { return "rgba(189, 189, 198, .8)";}
+					})
+			}
+
+
+			function visualizeLines() {
+
+				var line = d3.svg.line()
+					.x(function(d) {return d[0]})
+					.y(function(d) {return d[1]})
+					.interpolate("cardinal")
+
+
+				var separators = d3.select("#main")
+					.selectAll('g.linegraph')
+					.data([linepaths])
+					.enter()
+					.append('g')
+					.attr('class', 'linegraph')
+					.selectAll('path.separator')
+					.data(function(d) {
+						return d;
+					})
+					.enter()
+					.append('path')
+					.attr('class', 'separator')
+					.attr('d', function(d) {
+						console.log(d)
+						return line(d);
+					})
+					.attr('fill', 'none')
+					.attr('stroke', 'black')
+			}
+
+			
+
+			var startmonth = daterange[0][1]
+			
+			for (var y = daterange[0][0]; y<=daterange[1][0]; y++) {
+				for (var m = startmonth; m<=12; m++) {
+					if (m.toString().length==1) {strM="0"+m}
+					else {strM = m}
+					visualizeMonth(y+'-'+strM);
+					visuzalizeList(y+'-'+strM);
+					if (y == daterange[1][0] && m == daterange[1][1]) {break;}
+				}
+				startmonth=1;
+			}
+
+			visualizeLines();
+
+
+		</script>	
+	
+	</body>
+
+</html>

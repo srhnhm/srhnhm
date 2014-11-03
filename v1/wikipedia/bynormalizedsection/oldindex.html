@@ -1,0 +1,227 @@
+<html>
+	<head>
+		<title></title>
+ 
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		
+		<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+
+ 		<style type="text/css">
+ 			body {
+ 				margin:0px;
+ 				padding:0px;
+ 			}
+			div#bar {
+				width:100%;
+				height:40px;
+				display:inline-block;
+				background-color:#333;
+				color:white;
+				margin-bottom:10px;
+			}
+
+			svg#main {
+				width:1000000;
+				height:10000000;
+			}
+
+ 		</style>
+	</head>
+
+	<body>
+		<div id="bar"></div>
+		<svg id="main"></svg>
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+			
+			function plotData(data) {
+
+				var scale = 4
+				var xspacer = 0;
+				var yspacer = 1;
+				var gap = 0;
+
+				// var circular = false;
+				// var square = false;
+				// var rectangular = true;
+
+				// if (rectangular == true) {
+				// 	var width = scale*4
+				// 	 // scale = scale/2
+					// var xoffset = width/2
+					// var yoffset = scale/2
+				// } else {
+					var width = scale*4
+					var xoffset = width/2 + 50 //control the position
+					var yoffset = scale/2 + 50 //control the position
+				// }
+
+				var column_count = -1;
+				var sum = 0;
+				
+
+				var sections = data['sections'];
+				var revisions = d3.entries(data['revisions']);
+				var main = d3.selectAll('#main')
+				
+				var linepaths = [];
+				for (var l=0; l<sections.length; l++) {linepaths[l] = []}
+				var lineweight = 1;
+				
+				var colormap = ["#8BC6AC", "#6FA6D8", "#75C6D3", "#B0A1B7", "#E5A788", "#D6CF8E", "#84B2AF", "#A1AD76", "#C69B9B", "#94ACDD", "#C2C97F", "#8A91B5", "#6FA6D8", "#77777F", "#75C6D3",  "green", "blue", "purple", "red", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue"]
+
+
+
+				var columns = main.selectAll('g')
+					.data(revisions)
+					.enter()
+					.append('g')
+					.text(function(d) {return d.key})
+					.attr('class', 'column')
+					.attr('transform', function(d, i) {
+						column_count++;
+						// return "translate("+((column_count*(width+xspacer))+xoffset)+", "+yoffset+")";
+						return "translate("+((column_count*(width+xspacer))+xoffset)+", "+yoffset+")";
+					})
+				
+				var sections = columns.selectAll('g.section')
+					.data(function(d) {
+						return d3.entries(d.value);
+					})
+					.enter()
+					.append('g')
+					.attr('class', 'section')
+					
+					.attr('transform', function(d, i) {
+						var offset = sum
+						if (i==0) {offset=0; sum=0;}
+						sum += ((d.value.length*(scale+yspacer))+gap)
+						linepaths[i].push([($(this).position().left - xspacer/2), (sum + yoffset - yspacer/2 - gap/2 )])
+						// linepaths[i].push([($(this).position().left), (sum + yoffset - scale/2 - yspacer/2 - gap/2)])
+						return "translate(0, "+offset+")"
+					})
+					.attr('fill', function(d, i){
+						console.log(d.value)
+						if (d.value.length>0 && d.value[0].rev_section_group > 0) {
+							return colormap[i]
+						} else {
+							return "none"
+						}
+					})
+
+
+				// DRAW THE SECTION AREAS
+				
+				var line = d3.svg.line()
+				    .x(function(d) { return d[0]; })
+				    .y(function(d) { return d[1]; })
+				    .interpolate("step-after");
+				    // .interpolate("linear");				
+
+				main.selectAll('path.linepaths')
+					.data(linepaths)
+					.enter()
+					.append("path")
+					.attr('class', 'linepaths')
+				    .attr("d", function(d) {return line(d);})
+				    .attr('fill', 'none')
+				    .attr('stroke', '#000000')
+				    .attr('weight', lineweight)
+
+
+				// DRAW THE INDIVIDUAL EDITS
+				var edits = sections.selectAll('rect')
+					.data(function(d) { return d.value;})
+					.enter()
+					.append('rect')
+					.attr('class', 'list')
+					.attr('title', function(d, i) {
+						return d.rev_section_group+": "+d.rev_section_name;
+					})
+					// .attr('cx', 0)
+					// .attr('cy', 0)
+					// .attr('r', scale/2)
+					.attr('width', width)	
+					.attr('height', scale)	
+					.attr('transform', function(d, i) {
+						return "translate(0, "+(i*(scale+yspacer))+")"
+					});
+
+				
+
+
+
+
+			}
+
+
+			// function plotData(data) {
+			// 	var sections = data['sections'];
+			// 	var revisions = d3.entries(data['revisions']);
+
+			// 	var main = d3.selectAll('div#main')
+					
+			// 	var columns = main.selectAll('ul.column')
+			// 		.data(revisions)
+			// 		.enter()
+			// 		.append('ul')
+			// 		.text(function(d) {return d.key})
+			// 		.attr('class', 'column')
+
+			// 	var sections = columns.selectAll('ul.section')
+			// 		.data(function(d) {
+			// 			return d3.entries(d.value);
+			// 		})
+			// 		.enter()
+			// 		.append('ul')
+			// 		.attr('class', 'sections')
+
+			// 	var edits = sections.selectAll('li')
+			// 		.data(function(d) { return d.value;})
+			// 		.enter()
+			// 		.append('li')
+			// 		.attr('class', 'list')
+			// 		.text(function(d) {
+			// 			return d.rev_section_group+": "+d.rev_section_name;
+			// 		})
+
+			// }
+
+
+
+
+
+		/////////////////////////////////////////
+		
+			var defaultquery="Coffee"
+
+			var urlString = window.location.search.substring(1); //eliminates the "?"
+			if (urlString.length > 1) {
+				urlArray = urlString.split("=");
+				thisquery = urlArray[1].replace('/', '')
+			} else {
+				thisquery = defaultquery;
+			}
+			$('#bar').text('loading...')
+			$.ajax({
+				url: "server/getdata.py",
+				data: {
+					query : thisquery
+				},
+				type: "GET",
+				dataType: "json",
+				success: function(data) {
+					$('div#bar').text('')
+					plotData(data);
+
+
+				}
+			});
+
+		});
+		</script>
+	</body>
+
+</html>

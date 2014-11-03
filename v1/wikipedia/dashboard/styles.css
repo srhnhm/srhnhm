@@ -1,0 +1,187 @@
+body {
+	margin:0px;
+	padding:0px;
+	background-color:#F2F2F2;
+	color:#333333;
+	font-family:'garamond-premier-pro', 'Georgia', serif;
+}
+
+div {
+	position:relative;
+	display:inline-block;
+}
+
+svg {
+	margin: 10px 0px;
+}
+
+.gradient_bg {
+    background-image: -ms-linear-gradient(left, #eaeaea 0%, #F2F2F2 100%);
+    background-image: -moz-linear-gradient(left, #eaeaea 0%, #F2F2F2 100%);
+    background-image: -o-linear-gradient(left, #eaeaea 0%, #F2F2F2 100%);
+    background-image: -webkit-linear-gradient(left, #F2F2F2 0%, #eaeaea 100%);
+}  
+
+
+.third {
+	width:31.33%;
+	margin:0% 1%;
+	display:inline-block;
+	float:left;
+}
+
+.whole {
+	width:97.5%;
+	padding:0% 1%;
+	border-top:10px solid #f2f2f2;
+}
+
+.half {
+	width:45%;
+	float:left;
+}
+
+
+.half:nth-child(odd) {
+	float:right;
+}
+
+
+.header {
+	width:100%;
+	padding:2px 0px;
+	margin: 10px 0px 0px 0px;
+	border-bottom:2px solid #ADAFB2;
+	font-size:11px;
+	text-transform:uppercase;
+}
+
+.header > span.smallcaps {
+	font-size: 9px;
+	margin: 0px 3px;
+}
+
+.stat {
+	color:#000;
+	font-size:21px;
+	line-height:28px;
+	/*font-family:"garamond-premier-pro-display";*/
+	letter-spacing:1px;
+
+}
+
+.key {
+	color:#000;
+	font-size:14px;
+	line-height:20px;
+	font-size:10px;
+	font-family:"helvetica", "arial", sans-serif;
+	text-transform:uppercase;
+	letter-spacing:0px;
+}
+
+
+.label {
+	color:#000;
+	font-size:14px;
+	line-height:20px;
+	font-size:10px;
+	font-family:"helvetica", "arial", sans-serif;
+	text-transform:uppercase;
+}
+
+.swatch {
+	width:10px;
+	height:10px;
+	margin-right: 5px;
+	top:1px;
+}
+
+
+.spine {
+	margin:10px 0px;
+	font-size:18px;
+}
+
+.spine > li {
+	left:0%;
+	width:48%;
+	text-align:right;
+	line-height:20px;
+	display:inline-block;
+	position:relative;
+
+}
+
+.spine > li:nth-child(even) {
+	left:4%;
+	width:48%;
+	text-align:left;
+	clear:right;	
+}
+
+
+.axis .domain {
+  fill: none;
+  stroke: #bbb;
+}
+
+.axis .tick {
+	stroke:#bbb;
+}
+
+.axis {
+	color:#000;
+	font-size:14px;
+	line-height:20px;
+	font-size:10px;
+	font-family:"helvetica", "arial", sans-serif;
+	text-transform:uppercase;	
+}
+
+
+
+ul, li {
+	list-style-type:none;
+	margin:0;
+	padding:0;	
+}
+
+
+ul.legend > li {
+	display:inline-block;
+	float:left;
+	margin-right:15px;
+}
+
+#citations_legend {
+	width: 190px;
+	position: relative;
+	/*right: 0px;*/
+	text-align:right;
+}
+
+.poor {
+	fill: #F7A4AC;
+	background-color: #F7A4AC;
+
+}
+.good {
+	fill: #BFE6E8;
+	background-color: #BFE6E8;
+}
+
+.great {
+	fill: #9FE7C6;
+	background-color: #9FE7C6;
+}
+
+.observed {
+	fill: #69707C;
+	background-color: #69707C;
+}
+
+.average{
+	fill: #4d4d4d;
+	background-color: #4d4d4d;
+}
