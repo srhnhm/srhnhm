@@ -1,0 +1,259 @@
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		
+		<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+		<style>
+
+		</style>
+
+ 		<style type="text/css">
+ 			body {
+ 				margin:0px;
+ 				padding:0px;
+ 			}
+
+ 			header {
+ 				background-color:#333;
+ 				color:white;
+				display:inline-block;
+				position:fixed;
+				width:100%;
+ 			}
+			
+			div#bar {
+				width:100%;
+				min-height:1em;
+				display:inline-block;
+				background-color:#333;
+				color:white;
+				margin-bottom:10px;
+			}
+
+			svg#main {
+				width:1000000;
+				height:10000000;
+			}
+
+ 		</style>
+	</head>
+
+	<body>
+		<header>Page: "Sugar"<br/><div id="bar"></div></header>
+		
+		<svg id="main"></svg>
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+			var colormap = ["#8BC6AC", "#6FA6D8", "#75C6D3", "#B0A1B7", "#E5A788", "#D6CF8E", "#84B2AF", "#A1AD76", "#C69B9B", "#94ACDD", "#C2C97F", "#8A91B5", "#77777F", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue", "purple", "red", "orange", "gold", "green", "blue"]
+			
+			function plotData(data) {
+
+
+
+				var sections = data['sections'];
+				var groups = data['groups'];
+				var revisions = d3.entries(data['revisions']);
+
+				var scale = 4
+				var xspacer = 2;
+				var yspacer = 2;
+				var gap = 0;
+
+				var xoffset = scale/2 + 50 //control the position within the document window
+				var yoffset = scale/2 + 50 //control the position within the document window
+
+				var total_groups = groups.length
+				var total_lengths_by_column = []
+
+				var percentHeight = 300;
+				var multiplier = 1
+
+				var column_count = -1;
+				var index_count = -1;
+				var width_count = -1;
+				var height_count = -1;
+				var sum = 0;
+				var width = 0;
+				var width_by_column = 0;
+			
+				var main = d3.selectAll('#main')
+
+				var columns = main.selectAll('g')
+					.data(revisions)
+					.enter()
+					.append('g')
+					.text(function(d) {return d.key})
+					.attr('class', 'column')
+					.attr('transform', function(d, i) {
+						column_count++;
+						var section_edits = 0;
+						var nonsection_edits = 0;
+						for (var i=1; i<=total_groups; i++) {
+							section_edits += d.value[i.toString()].length
+						}
+						for (var j=-2; j<0; j++) {
+							nonsection_edits += d.value[j.toString()].length;
+						}
+						total_lengths_by_column.push([section_edits, nonsection_edits])
+						thiswidth_by_column = width_by_column;
+						width_by_column+=(section_edits*multiplier);
+						return "translate("+((column_count*xspacer)+thiswidth_by_column+xoffset)+", "+yoffset+")";
+					})
+
+				var section = columns.selectAll('rect.section')
+					.data(function(d) {
+						return d3.entries(d.value);
+					})
+					.enter()
+					.append('rect')
+					.attr('class', function(d, i) {
+						return 'section'
+					})
+					.attr('width', function(d, i) {
+
+						if (i==0) {
+							width_count++;
+						} 
+						if ((total_lengths_by_column[width_count][0])>0) {
+							width = (total_lengths_by_column[width_count][0]*multiplier)
+						} else {
+							width = 10;	
+						}
+						return width;
+					})
+					.attr('height', function(d, i) {
+						if (i==0) {
+							height_count++;
+						} 
+						
+						if ((total_lengths_by_column[height_count][0])>0) {
+							if (parseInt(d.key) < 0){
+								height = (d.value.length)/(total_lengths_by_column[height_count][0])*percentHeight
+							} 
+							else {
+								height = ((d.value.length)*percentHeight/(total_lengths_by_column[height_count][0]))
+							}
+						} else {
+							height = 0;	
+						}
+						
+						// total_lengths_by_column[other_count].push(height)
+						return height			
+					})
+					.attr('transform', function(d, i) {
+						var offset = sum
+
+						if (i==0) {
+							index_count++;
+							offset = 0;
+							sum = 0;
+						}
+						if ((d.value.length)>0) {
+							var thisoffset = (d.value.length/(total_lengths_by_column[index_count][0])*percentHeight) + yspacer;
+						} else { var thisoffset=0; }
+
+						if (d.key == "-2"){
+							return "translate(0, "+percentHeight+")"
+						} else if ( d.key == "-1") {
+							var thisoffset = (((total_lengths_by_column[index_count][1]-d.value.length)/total_lengths_by_column[index_count][0])*percentHeight) + yspacer;
+							return "translate(0, "+(percentHeight+thisoffset)+")"
+						} else {
+							sum += thisoffset
+							// return "translate(0, "+offset+")"
+						}
+						return "translate(0, "+offset+")"
+					})
+					.attr('fill', function(d){
+						if (d.key == "-2") {
+							return "#bbb"
+						} else if(d.key == "-1"){
+							return "#ccc"
+						} else {
+							return colormap[parseInt(d.key)-1]
+						
+						}
+					})
+					.on('mouseover', function(d) {
+						$('#bar').text(d.value[0]['rev_section_name']+": "+d.value.length+" edits in "+d.value[0]['rev_month']+"-"+d.value[0]['rev_year'])
+					
+					})
+
+
+
+
+
+			
+				// DRAW THE SECTION AREAS
+				
+				// var line = d3.svg.line()
+				//     .x(function(d) { return d[0]; })
+				//     .y(function(d) { return d[1]; })
+				//     .interpolate("step-after");
+				//     // .interpolate("linear");				
+
+				// main.selectAll('path.linepaths')
+				// 	.data(linepaths)
+				// 	.enter()
+				// 	.append("path")
+				// 	.attr('class', 'linepaths')
+				//     .attr("d", function(d) {return line(d);})
+				//     .attr('fill', 'none')
+				//     .attr('stroke', '#000000')
+				//     .attr('weight', lineweight)
+
+
+
+				// var edits = section.selectAll('rect')
+				// 	.data(function(d) { return d.value;})
+				// 	.enter()
+				// 	.append('rect')
+				// 	.attr('class', 'list')
+				// 	.attr('title', function(d, i) {
+				// 		return d.rev_section_group+": "+d.rev_section_name;
+				// 	})
+				// 	// .attr('cx', 0)
+				// 	// .attr('cy', 0)
+				// 	// .attr('r', scale/2)
+
+				// 	.attr('width', width)	
+				// 	.attr('height', scale)	
+				// 	.attr('transform', function(d, i) {
+				// 		return "translate(0, "+(i*(scale+yspacer))+")"
+				// 	});
+
+			}
+
+
+
+
+
+		/////////////////////////////////////////
+		
+			var defaultquery="Coffee"
+
+			var urlString = window.location.search.substring(1); //eliminates the "?"
+			if (urlString.length > 1) {
+				urlArray = urlString.split("=");
+				thisquery = urlArray[1].replace('/', '')
+			} else {
+				thisquery = defaultquery;
+			}
+			$('#bar').text('loading...')
+			$.ajax({
+				url: "server/data/structured_Sugar.json",
+				type: "GET",
+				dataType: "json",
+				success: function(data) {
+					$('div#bar').text('')
+					plotData(data);
+				}
+			});
+
+		});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,107 @@
+
+
+.week-entry {
+	width:100%;
+	min-height:100px;
+	height:14%;
+	margin:2% 0%;
+	position:relative;
+}
+
+
+.daily-bar {
+	background-color:#A9CBEA;
+	width:100%;
+	position:absolute;
+	bottom:20%;
+}
+
+.week-entry-line {
+	width:100%;
+	height:80%;
+	border-bottom:1px solid #b3b3b3;
+	position:absolute;
+	top:0px;
+}
+
+.grid {
+	width:100%;
+	height:100%;
+	position:relative;
+}
+
+.grid-wrapper-left {
+	position:absolute;
+	left:0%;
+	display:inline-block;
+	width:40%;
+	margin-left:40px;
+	height:100%;
+}
+.grid-wrapper-right {
+	position:absolute;
+	right:0%;
+	display:inline-block;
+	width:50%;	
+	height:100%;
+}
+.week-grid {
+	display:inline-block;
+	float:left;
+	height:100%;
+	width:11%;
+	margin-right:2%;
+	position:relative;
+	text-align:center;
+}
+
+
+.week-grid-lower {
+	position:absolute;
+	top:80%;
+}
+.week-grid-upper {
+	position:absolute;
+	/*bottom:70%;*/
+	height:50%;
+	bottom:0%;
+	line-height:100%;
+}
+
+.total-rides {
+	left:0%;
+	bottom:5%;
+}
+
+.total-donations {
+	left:35%;
+
+}
+.total-timedriving {
+	left:50%;
+
+}
+
+.daily-label {
+	text-align:center;
+	width:100%;
+}
+
+.maxbar {
+	background-color:#81B8E2;
+}
+
+.minbar {
+	background-color:#ccc;
+}
+
+.other-month {
+
+}
+
+.other-month > .daily-bar {
+	background-color:#ccc;
+}
+.other-month > .daily-label {
+	color:#ccc;
+}

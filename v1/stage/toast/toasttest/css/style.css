@@ -1,0 +1,155 @@
+body {
+	background: #fff1e2; /* Old browsers */
+	background: -moz-linear-gradient(top, #fff1e2 0%, #e2b673 47%, #8c4d0e 70%, #211007 89%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff1e2), color-stop(47%,#e2b673), color-stop(70%,#8c4d0e), color-stop(89%,#211007)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #fff1e2 0%,#e2b673 47%,#8c4d0e 70%,#211007 89%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #fff1e2 0%,#e2b673 47%,#8c4d0e 70%,#211007 89%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #fff1e2 0%,#e2b673 47%,#8c4d0e 70%,#211007 89%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff1e2', endColorstr='#211007',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #fff1e2 0%,#e2b673 47%,#8c4d0e 70%,#211007 89%); /* W3C */
+
+}
+
+div {
+	
+	padding:0px;
+	margin:0px;
+	border-collapse: collapse;
+}
+
+div.main{}
+
+div.toast {
+	position:fixed;
+	top:80px;
+	left:30px;
+	
+}
+
+div.masthead {
+	position:fixed;
+	top:120px;
+	left:30px;
+}
+
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+	
+	
+}
+
+
+h1 {
+	color:#2d1608;
+	font-family: 'helvetica', 'arial', serif;
+  	font-size: 80px;
+  	font-style: italic;
+  	font-weight: 700;
+  	text-shadow: none;
+  	text-decoration: none;
+  	letter-spacing: -0.05em;
+  	word-spacing: -0.101em;
+	padding:0px;
+	margin:0px;
+	border-collapse: collapse;
+}
+
+h3 {
+	color:#2d1608;
+	font-family: 'helvetica', 'arial', serif;
+  	font-size: 30px;
+  	font-style: italic;
+  	font-weight: 700;
+  	text-shadow: none;
+  	text-decoration: none;
+  	letter-spacing: -0.05em;
+  	word-spacing: -0.101em;
+	padding:0px;
+	margin:0px;
+	border-collapse: collapse;
+}
+
+
+.content {
+
+	width:65%;
+	position:relative;
+	left:45%;
+	width:50%;
+    margin: 60px 0px 400px 0px;
+    padding: 120px 20px;
+
+
+
+}
+
+p {
+	
+	font-family: 'helvetica', 'arial', sans-serif;
+	color:#2d1608;
+	size:14pt;
+	
+}
+
+
+form {
+
+	color:#FFFFFF;
+	
+}
+
+ul {
+
+}
+
+
+#about {
+}
+
+
+#logistics {
+}
+
+#program {
+}
+
+
+#register {
+}
+
+
+#nav-dock {
+
+}
+#nav-dock a {
+    display: inline;
+    margin: 0px 20px 0px 0px;
+    color: #2d1608;
+	font-family: 'helvetica', 'arial', serif;
+  	font-size: 30px;
+  	font-style: italic;
+  	font-weight: 700;
+  	text-shadow: none;
+  	text-decoration: none;
+  	letter-spacing: -0.05em;
+  	word-spacing: -0.101em;
+
+}
+#nav-dock a:hover {
+    background: #000000;
+	color:#ffffff;
+}
+#nav-dock #next {
+    margin-bottom: 10px;
+}
+
+p#worksonview {
+	
+}
+
+

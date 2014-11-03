@@ -1,0 +1,158 @@
+<html>
+	<head>
+		
+		<title>blankfacebook</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<style>
+		</style>
+	
+	</head>
+
+	<body>
+		<div id="top">
+			<div class="centered">
+				<div class="toplinks" style="float:left">
+					<div class="toplinkbutton home" style="width:95px;"></div>
+					<div class="toplinkbutton" style="width:23px;"></div>
+					<div class="toplinkbutton" style="width:23px;"></div>
+					<div class="toplinkbutton" style="width:23px;"></div>
+				</div>
+
+				<div id="searchbar" class="textentry"><div class="pointer" style="float:right; width:22px; height:16px; margin-top:4px; border-left:1px solid #ddd"></div></div>
+				
+				
+				<div class="toplinks" style="float:right; margin-right:120px;">
+					<div class="imgdiv avatar" style="width:23px; height:23px; margin-bottom:4px; float:none;"></div>
+					<div class="toplinkbutton" style="width:80px;"></div>
+					<div class="toplinkbutton" style="width:50px;"><div style="border-left:1px solid #526da4; height:20px; margin-top:6px;"></div></div>
+					<div class="toplinkbutton" style="width:25px;"><div style="border-left:1px solid #526da4; height:20px; margin-top:6px;"></div></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="main" style="width:100%">
+		
+		<div class="centered">
+			<div id="left">
+				<div class="avatar imgdiv" style="width:180px; height:300px; margin-top:20px; margin-bottom:22px; clear:none; clear:both; opacity:0"></div>
+				<ul class="menu">
+					<li class="lightblue"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div class="friendlist">
+					<div class="imgdiv avatar"></div>
+					<div class="imgdiv avatar"></div>
+					<div class="imgdiv avatar"></div>
+					<div class="imgdiv avatar"></div>
+					<div class="imgdiv avatar"></div>
+					<div class="imgdiv avatar"></div>
+					<div class="imgdiv avatar"></div>
+					<div class="imgdiv avatar"></div>
+					<div class="imgdiv avatar"></div>
+					<div class="imgdiv avatar"></div>
+
+				</div>
+
+			</div>
+
+ 			<div id="center">
+
+
+				<div id="wall" class="profilewall" style="padding-left:20px">
+					<div id="profileheader">
+
+						<div class="imgdiv photo-filmstrip"></div>
+						<div class="imgdiv photo-filmstrip"></div>
+						<div class="imgdiv photo-filmstrip"></div>
+						<div class="imgdiv photo-filmstrip"></div>
+						<div class="imgdiv photo-filmstrip"></div>
+
+						
+					</div>
+
+					<div id="update" >
+						<div style="height:30px"></div>
+						<div class="textentry" style="min-height:30px">
+							<img src="nub.png" style="margin-top:-6px; padding-left:4px;"/>
+							<span id="updatebox" contenteditable="true"></span>
+							<div id="geoexpand" class="hidden"></div>
+							<div id="updatebar" class="hidden">
+								<div class="updateoptions"></div>
+								<div class="updateoptions"></div>
+								<div id="postwrapper"><div id="post"></div></div>
+								<div id="custom"></div>
+							</div>
+
+
+
+						</div>
+					</div>
+
+				</div>
+
+				<div id="right" style="padding:0px 20px; width:220px">
+					
+					<div style="display:inline-block; width:100%;">
+						<div class="graybutton pointer" style="width:40px"></div>
+						<div class="graybutton pointer" style="width:76px"></div>
+						<div class="graybutton pointer" style="width:70px"></div>
+						
+					</div>
+					
+
+					<div id="adheader"></div>
+					<div class="ad"><div class="adimage imgdiv"></div></div>
+					<div class="ad"><div class="adimage imgdiv"></div></div>
+					<div class="ad"><div class="adimage imgdiv"></div></div>
+					<div class="ad"><div class="adimage imgdiv"></div></div>
+					<div class="ad"><div class="adimage imgdiv"></div></div>
+					<div class="ad"><div class="adimage imgdiv"></div></div>
+					<div class="ad"><div class="adimage imgdiv"></div></div>
+					<div id="adfooter"></div>
+					
+				</div>
+				
+			</div>
+
+
+		</div>
+		</div>
+
+	</div>
+</div>
+
+		<div id="blackout" class="hidden">
+			<div id="stage">
+				<div class="imgdiv" style="width:693px"></div>
+				<div class="col">
+					<div class="imgdiv avatar"></div>
+
+					<div style="position: relative;top: 120px;display: inline-block;width: 90%;">
+						<div id="adheader" style="background-color:transparent; border-top:none;"></div>
+						<div class="ad"><div class="adimage imgdiv"></div></div>
+						<div class="ad"><div class="adimage imgdiv"></div></div>
+					</div>
+					
+
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="populate.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var height = Math.random()*200 + 100;
+				$('#left > div.avatar').css('height', height).css('opacity', 1);
+			})
+
+		</script>
+	</body>
+
+</html>

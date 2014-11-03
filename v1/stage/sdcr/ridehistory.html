@@ -1,0 +1,169 @@
+<html>
+	<head>
+		
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+		<title>Sidecar: a whole new way to get around</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		
+		<script type="text/javascript" src="//use.typekit.net/dnj3enb.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+		<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+	
+	</head>
+
+	<body>
+
+		<div id="main" class="fullwidth">
+
+			<div id="left">
+				<div id="logo" class="gradient-header">
+					<a href="/"><img src="imgs/sidecar_logo_small.svg"/></a>
+				</div>
+				<div id="user">
+					<div id="user-photo"><img src="imgs/sample-user-photo.png"/></div>
+					<div id="user-name" class="accent"> Andreas B.</div>
+				</div>
+
+				<div >
+					<ul id="sidenav" class="nav menu">
+						<li class="page-selection" id="profile"><a href="profile.html">Profile</a></li>
+						<li class="page-selection" id="ridehistory"><a href="ridehistory.html">Ride History</a></li>
+						<li class="page-selection" id="vehicle"><a href="vehicle.html">Your Vehicle</a></li>
+						<li class="page-selection" id="support"><a href="support.html">Support</a></li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div id="top" class="gradient-header">
+				<ul id="topnav" class="nav biglink">	
+					<li><a href="http://side.cr/about">About</a></li>
+					<li><a href="http://side.cr/faq">FAQ</a></li>
+					<li><a href="http://blog.side.cr">Blog</a></li>
+					<li><a href="http://side.cr/press">Press</a></li>
+					<li><a href="#">Invite</a></li>
+				</ul>
+				<div id="social">
+					<a href="https://twitter.com/sidecarsf" target="_blank"><img class="socialicon" src="imgs/twitter_off.svg"/></a>
+					<a href="https://www.facebook.com/sidecr" target="_blank"><img class="socialicon" src="imgs/facebook_off.svg"/></a>	
+					<a href="https://side.cr" target="_blank"><img src="imgs/sidecar_circle_small.svg"/></a>
+				</div>
+
+			</div>
+			<div id="content-frame"></div>
+
+			<div id="content-floater"></div>
+			<div id="content">
+				
+				<div id="content-header">
+					<h2>Ride History</h2>
+					<ul id="toggle" class="nav control">
+						<li class="selected view-selection" id="month"><a>Month</a></li>
+						<li class="view-selection" id="fourday"><a>4-day</a></li>
+						<li class="view-selection" id="list"><a>List</a></li>
+					</ul>
+					<div style="background-color:#f2f2f9; height:20px; display:block; margin-top:37px"></div>
+				</div>
+
+				<div id="content-controls" class="vis-area">
+					<div id="controls-wrapper">
+						<h3 id="daterange"></h3>
+						<div id="vis-buttons">
+							<input id="time-selection-today" class="time-selection control gradient-control vis-button" type="button" value="Today"/>
+							<input id="time-selection-left" class="time-selection control gradient-control vis-button" type="button"/>
+							<input id="time-selection-right" class="time-selection control gradient-control vis-button" type="button"/>
+						</div>
+					</div>
+					<div id="rowheader">
+						<div class="grid"></div>
+					</div>
+				</div>
+
+				<div id="content-body" class="vis-area">
+					<div id="vis"></div>
+
+					<div id="rollover">
+						<div id="rollover-text">
+							<div id="rollover-rider" class="data-label"></div>
+							<div id="rollover-details">
+								<div id="rollover-donation" class="control text-white"><img /></div>
+								<div id="rollover-time" class="control text-white floatright"></div>
+								
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="popup">
+				<div id="popup-top">
+					<div id="popup-photo"></div>
+					<div id="popup-title" class="popup-col2">
+						<div id="popup-rider" class="accent"></div>
+						<div id="popup-stars">
+							<span>★</span>
+							<span>★</span>
+							<span>★</span>
+							<span>★</span>
+							<span>★</span>
+						</div>
+						<div id="popup-block">
+							<div class="block control"></div>
+						</div>
+					</div>
+				</div>
+				<div id="popup-date" class="control text-white"></div>
+				
+				<div id="popup-bottom">
+					<div id="popup-pickup" class="popup-row">
+						<div class="control text-gray floatleft popup-col1 gradient-sideways">Pick up</div>
+						<div class="popup-col2">
+							<div id="popup-pickup-address" class="data-label floatleft"></div>
+							<div id="popup-pickup-time" class="control popup-col3 floatright"></div>
+						</div>
+					</div>
+					<div id="popup-dropoff" class="popup-row">
+						<div class="control text-gray floatleft popup-col1 gradient-sideways">Drop off</div>
+						<div class="popup-col2">
+							<div id="popup-dropoff-address" class="data-label floatleft"></div>
+							<div id="popup-dropoff-time" class="control popup-col3 floatright"></div>
+						</div>
+					</div>
+					<div id="popup-total" class="popup-row">
+						<div id="popup-donation" class="data-xl floatleft popup-col1"></div>
+						<div class="popup-col2">
+							<div id="popup-paid" class="data-label floatleft"></div>
+							<div id="popup-paid-img"></div>
+							<div id="popup-timepaid" class="control popup-col3 floatright"></div>
+							<div id="popup-datepaid" class="control popup-col3 floatright"></div>
+						</div>
+					</div>
+					
+
+					<div id="popup-average">
+						<div id="" class="floatleft"></div>
+					</div>
+
+				</div>
+				<div id="popup-close"></div>
+			</div>
+			<div id="popup-overlay"></div>
+		
+		</div>	
+				
+		
+
+
+		
+		<script type="text/javascript" src="behaviors.js"></script>
+		<script type="text/javascript" src="ridehistory-behaviors.js"></script>
+
+
+
+	</body>
+
+</html>

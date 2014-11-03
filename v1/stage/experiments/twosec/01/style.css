@@ -1,0 +1,99 @@
+
+body {
+	
+	background:#FFFFF8;
+	font-family: republic-web;
+
+}
+
+p{
+		font-family: republic-web;
+}
+
+
+div.top {
+
+	margin: 60px auto 40px 120px;	
+	
+}
+
+span.header {
+	font-size:22pt;
+	color:#21084d;
+
+	margin-bottom:0px;
+	padding-bottom:0px;	
+}
+
+span.subheader {
+	font-size:18pt;
+	color:#616556;
+
+
+}
+
+div.moment {
+	width:272px;
+	margin: 0px auto 80px 120px;
+	border-width:5px;
+	border-style:outset;
+	border-color:#616556;
+	background-color:#ffffff;
+
+
+}
+
+.masktop {
+	position:relative;
+	top:0px;
+	z-index:10;
+
+}
+
+.maskbottom {
+	position:relative;
+	margin-top:-48px;
+	z-index:10;
+
+}
+
+.momentimg {
+	position:relative;
+	margin-top:-50px;
+	z-index:5;
+	width:inherit;
+	height:inherit;
+	
+
+	
+}
+
+p.captionTitle {
+	position:relative;
+	margin-top:-36px;
+	padding-bottom:5px;
+	padding-left:10px;
+	z-index:15;
+	font-family: republic-web;
+
+	font-size: 18pt;
+	font-style:oblique;
+	color:#FFFFFF;
+
+	
+}
+
+
+p.caption {
+	position:relative;
+	margin-top:-18px;
+	padding-left:10px;
+	padding-bottom:0px;
+	z-index:5;
+	font-family: republic-web;
+	font-size:12pt;
+	font-style:oblique;	
+	color:#666666;
+	background-color:#FFFFFF;
+
+}

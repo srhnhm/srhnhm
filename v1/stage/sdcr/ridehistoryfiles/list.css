@@ -1,0 +1,93 @@
+
+/*LIST PAGE*/
+
+#vis {
+	padding:0px;
+}
+#rowheader {
+	top:36px;
+	position:relative;
+	height:18px;
+	background-color:#9393a5;
+	border-top: 1px solid #67677F;
+	border-bottom: 1px solid #67677F;
+	padding:0px 40px;
+}
+
+.listitem {
+	height:20px;
+	border-top:1px solid #e6e6e6;
+	padding:15px 40px;
+	
+	font-family:"myriad-pro";
+	font-size:13px;
+	color:#4d4d4d;
+	line-height:18px;
+}
+
+.listitem:nth-child(odd) {
+	background-color:#f5fbff;
+}
+
+
+.listtotals {
+	background-color:#ffffff;
+	border-top:1px solid #67677F;
+	font-weight:bold;
+	font-size:15px;
+}
+
+.listitem > div { 
+	overflow:hidden;
+	height:100%;
+	float:left;
+	display:inline-block;
+	margin-right:0.1%;
+
+	/*display:inline-block;*/
+}
+
+.entry-date 			{width: 10%;}
+.entry-time 			{width: 9%;}
+.entry-name 			{width: 16%;}
+.entry-rating 			{width: 12%;}
+.entry-block 			{width: 15%;}	
+.entry-pickup-dropoff 	{width: 20%;}
+.entry-donation 		{width: 7%;}
+.entry-drivercut		{width: 7%;}
+.entry-paid				{width: 3%;}
+
+
+.entry-name:hover {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+.listitem > div.entry-block {
+	height:auto;
+	min-height:1px;
+}
+
+.entry-rating > img {
+	margin-right:2px;
+}
+
+.entry-rating > span{
+	cursor:pointer;
+	margin-right:1px;
+	color:#b3b3b3;
+}
+
+.entry-rating > span.rated {
+	color:#FD9267;
+}
+
+.active-rating > span{
+	color:#4d4d4d;
+}
+.active-rating > span.rated {
+	color:#F05323;
+}
+
+
+

@@ -1,0 +1,91 @@
+<html>
+	<head>
+		
+		<title>page history dash</title>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+		<script type="text/javascript" src="http://use.typekit.com/yyj3bhu.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+	
+	</head>
+
+	<body>
+	<div id="wrapper" style="width:960px">
+
+		<div class="third gradient_bg">
+			<ul class="whole">
+				<li class="header">Total Edits</li>
+				<li class="stat">11,684</li>
+			</ul>
+
+			<ul class="half">
+				<li class="header">Edits this week</li>
+				<li class="stat">4</li>
+				<li class="header">Time since last edit</li>
+				<li class="stat">5d 14h</li>
+				<li class="header">Date of creation</li>
+				<li class="stat">10/14/2001</li>
+			</ul>
+			<ul class="half">
+				<li class="header">Average edits/week</li>
+				<li class="stat">3.05</li>
+				<li class="header">Ave. time betw edits</li>
+				<li class="stat">0d 08h</li>
+				<li class="header">Total pageviews</li>
+				<li class="stat">5.4M</li>
+			</ul>
+		</div>
+
+		<div class="third gradient_bg">
+			
+			<div class="whole">
+				<div class="header">Editors</div>
+				<svg id="editors2" width="100%" height="180px"></svg>
+			</div>
+ 			<ul class="half">
+				<li class="header"><div class="swatch" style="background-color:#FABE78"></div>Anonymous</li>
+				<li class="stat">78% <span class="key">of editors</span></li>
+				<li class="stat">57% <span class="key">of edits</span></li>
+			</ul>
+
+			<ul class="half">
+				<li class="header"><div class="swatch" style="background-color:#96BBFB"></div>Logged-In</li>
+				<li class="stat">22% <span class="key">of editors</span></li>
+				<li class="stat">43% <span class="key">of edits</span></li>
+			</ul>
+		</div>
+
+		<div class="third gradient_bg">
+			<div class="whole">
+				<div class="header">Citations <span class="smallcaps">per</span> paragraph</div>
+				<svg id="citations" width="100%" height="150"></svg>
+				<ul id="citations_legend" class="legend"></ul>
+			</div>
+
+			<ul class="whole">
+				<li class="header">Article size</li>
+				<ul class="spine">
+					<li class="stat">5,825,410</li>
+					<li class="key">kilobytes</li>
+					<li class="stat">10,400</li>
+					<li class="key">words</li>
+					<li class="stat">16,601,398</li>
+					<li class="key">characters</li>
+				</ul>
+			</ul>
+		</div>
+
+
+		<div class="whole">
+			<svg id="revhistory" width="100%" height="280px"></svg>
+		</div>
+
+		<script type="text/javascript" src="custom.js"></script>
+	</div>
+	</body>
+
+</html>
