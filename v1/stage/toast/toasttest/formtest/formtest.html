@@ -1,0 +1,98 @@
+<html>
+<head>
+
+<style type="text/css" media="screen">
+
+.ss-form-container {
+	width: 380px;
+	background-color: #FFF;
+	border: 0px solid #CCC;
+	padding: 0.5em 1em;
+	font-size: 0.9em;
+}
+.ss-q-title{
+	font-weight:bold;
+	padding-left:7px;
+	display: block;
+}
+.ss-q-submit{
+	color: #000;
+su}
+.ss-form-entry{
+	margin-bottom: 1.5em;
+} 
+.ss-q-short {}
+
+.ss-q-check {
+	margin-left:20px;
+} 
+.ss-q-subentry {
+	margin-left:20px;
+}
+
+.ss-q-submit{
+	background:#f7f7f7;
+	border:solid gray 1px;
+	margin:8px;
+	padding:0px 3px; 
+	color:#666666; 
+}
+</style>
+
+
+
+
+
+
+</head>
+
+<body>
+	
+	<div class="ss-form-container" style="display:none;" id="form-message"> 
+	</div> 
+
+	<div class="ss-form-container" id="form-container">
+		<form action="" method="POST" target="fake-target" onsubmit="this.action='https://spreadsheets0.google.com/spreadsheet/formResponse?formkey=dEJvX1J3VUx4Wm03VEpvUlN3c2N2OGc6MQ'; custommsg(); return true;">
+			
+
+			<div class="ss-form-entry">
+				<span class="ss-q-title">I'm making</span>
+				<input type="checkbox" class="ss-q-check" name="entry.2.group" id="group_2_1" value="bread" />bread<br>
+				<input type="checkbox" class="ss-q-check" name="entry.2.group" id="group_2_2"  value="jam" />jam<br>
+				<input type="checkbox" class="ss-q-check" name="entry.2.group" id="group_2_3" value="jam" />a toast-inspired project/performance<br>
+				
+			</div>
+			<p>If you checked project/performance, tell everyone more: <br/></p>
+			<div class="ss-form-title">
+				<span class="ss-q-subentry">Project Title: </span>
+				<input type="text" class="ss-q-short" name="entry.3.single" id="entry_3" />
+			</div>
+
+			<div class="ss-form-title">
+				<span class="ss-q-subentry">Short description: </span>
+				<input type="text" class="ss-q-short" name="entry.4.single" id="single_4" />
+			</div>
+			<p><br/></p>
+			<div class="ss-form-entry">
+				<span class="ss-q-title">Name: </span>
+				<input type="text" class="ss-q-short" name="entry.0.single" id="entry_0">
+			</div>
+			
+			<div class="ss-form-entry">
+				<span class="ss-q-title">Email :</span>
+				<input type="text" class="ss-q-short" name="entry.1.single" id="entry_1" />
+			</div>
+
+			<p></p>
+			<input type="submit" class="ss-q-submit" value="Submit" />
+		</form>
+		</div>
+	<iframe src="#" id="fake-target" name="fake-target" style="width:0px; height:0px; border:0px;"></iframe><br />
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<style type="text/css" media="screen">.ss-form-container{width: 380px;background-color: #FFF;border: 1px solid #CCC;padding: 0.5em 1em;font-size: 0.9em;}.ss-q-title{font-weight: bold;padding-left:7px;display: block;}.ss-q-submit{color: #000;}.ss-form-entry{margin-bottom: 1.5em;} .ss-q-short, .ss-q-submit{background:#f7f7f7;border:solid gray 1px;margin:8px;padding:0px 3px; color:#666666; }</style>
+
+<script type="text/javascript">function custommsg() {
+	event.preventDefault();
+	document.getElementById("form-message").style.display=""; document.getElementById("form-message").innerHTML="Thanks for your answers!"; document.getElementById("form-container").style.display="none";} </script>
+	
+	<div class="ss-form-container" style="display:none;" id="form-message"> </div> 
+	<div class="ss-form-container" id="form-container"><form action="" method="POST" target="fake-target" onsubmit="this.action='https://spreadsheets2.google.com/spreadsheet/formResponse?formkey=dEJvX1J3VUx4Wm03VEpvUlN3c2N2OGc6MQ'; custommsg()">
+		
+		<div class="ss-form-entry"><span class="ss-q-title">In what year did you first use Google?</span><input type="text" class="ss-q-short" name="entry.0.single" /></div>
+		
+		<div class="ss-form-entry"><span class="ss-q-title">What search engines did you use before Google?</span><input type="text" class="ss-q-short" name="entry.1.single" /></div>
+		
+		
+		<div class="checklist">
+
+				<input name="entry.2.group" value="bread" type="checkbox" id="group_2_1"/>
+				<a class="checkbox-select" href="#"><span/></a>
+				<a class="checkbox-deselect" href="#"><span/></a>
+
+			<div class='options'>I'll make Bread</div>
+			<div class='spacer'></div>
+
+				<input name="entry.2.group" value="jam" type="checkbox" id="group_2_2"/>
+				<a class="checkbox-select" href="#"><span/></a>
+				<a class="checkbox-deselect" href="#"><span/></a>
+
+			<div class='options'>I'll make Jam</div>
+			<div class='spacer'></div>			
+
+				<input name="entry.2.group" value="project" type="checkbox" id="group_2_3"/>
+				<a class="checkbox-select" href="#"><span/></a>
+				<a class="checkbox-deselect" href="#"><span/></a>
+
+			<div class='options'>I'll make a toast-inspired Project/Performance</div>
+			<div class='minispacer'></div>
+
+			<div class='minispacer'></div>
+
+			<p class="subsubheader">If you checked Project/Performance, tell us a bit more about it:</p>
+		
+			<input  tabindex="1" type="text" name="entry.3.single" for="entry_3" value="Project title">
+			<div class='minispacer'></div>
+
+			<input  tabindex="1" type="text" name="entry.4.single" for="entry_4" value="Short description">
+			<div class='spacer'></div>
+		
+		<p></p>
+		
+		<input type="submit" class="ss-q-submit" value="Submit" /></form>
+		</div>
+		
+		<iframe src="#" id="fake-target" name="fake-target" style="width:0px; height:0px; border:0px;"></iframe>
+		
+		<br />

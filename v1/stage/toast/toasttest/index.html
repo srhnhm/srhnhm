@@ -1,0 +1,222 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<link rel="shortcut icon" href="favicon.ico" /> 
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/toastform.css" />
+
+	<script src="js/jquery-1.6.1.min.js"></script> 
+	<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script> 
+	<script type="text/javascript" src="js/GSpreadsheet.js"></script> 
+		<script type="text/javascript" src="js/scripts.js"></script>
+	
+	<script type="text/javascript">
+
+		window.onload = function() {
+	    GSpreadsheet.load("tBo_RwULxZm7TJoRSwscv8g", { index: 'name' }, function(gs) {
+			var max = 100;
+			var cellLength = "0";		
+			for (i=0;i<max;i++) {
+				var row = gs.select(i);
+				var contr = row.contribution;
+				var project=/project/gi;
+
+				if (contr.match(project) != null) {
+					$("#worksonview").append('<strong>'+row.projecttitle+'</strong><br />'+row.description+'<br /><br />');
+				}
+			}
+	   });
+	 }
+	
+	</script>
+
+
+
+</head>
+
+<body>
+	<div class='main'> 
+
+		<div id="top"></div>
+		<div class="toast"><img src="images/toast.png"></img> </div>
+		<div class="masthead">
+			<h1>TOAST EXPO</h1>
+			<div id="nav-dock"> 
+	    	<a href="#register" class="scrolltoanchor">Register&nbsp;</a>
+	    	<a href="#about" class="scrolltoanchor">About&nbsp;</a> 
+		    <a href="#logistics" class="scrolltoanchor">Logistics&nbsp;</a> 
+		    <a href="#program" class="scrolltoanchor">Program&nbsp;</a> 
+
+			</div>
+		</div>	
+		
+
+		<iframe src="#" id="fake-target" name="fake-target" style="width:0px; height:0px; border:0px; border-collapse:collapse; "></iframe>
+
+
+
+
+		
+		<div id="register" class="content">
+			
+			<form>
+
+				<fieldset>
+					<legend>RSVP</legend>
+					<ul class="checklist">
+						<li>
+							<input name="entry.2.group" value="bread" type="checkbox" id="group_2_1"/>
+							<a class="checkbox-select" href="#"><span/></a>
+							<a class="checkbox-deselect" href="#"><span/></a>
+						</li>
+
+						<div class='options'>I'll bring Bread</div>
+						<div class='spacer'></div>
+
+
+						<li>
+							<input name="entry.2.group" value="jam" type="checkbox" id="group_2_2"/>
+							<a class="checkbox-select" href="#"><span/></a>
+							<a class="checkbox-deselect" href="#"><span/></a>
+						</li>
+						<div class='options'>I'll bring Jam</div>
+						<div class='spacer'></div>			
+						<li>
+							<input name="entry.2.group" value="project" type="checkbox" id="group_2_3"/>
+							<a class="checkbox-select" href="#"><span/></a>
+							<a class="checkbox-deselect" href="#"><span/></a>
+						</li>
+						<div class='options'>I'll bring a toast-inspired Project/Performance</div>
+						<div class='spacer'></div>
+					</ul>
+					<div style="clear: both;"></div>
+					<button class="sendit" type="submit" name="submitbutton" title="Submit the form">RSVP</button>
+				</fieldset>
+
+			</form>
+			
+			
+	    <h3>I'm bringing:</h3>
+
+			<div class="ss-form-container" style="display:none;" id="form-message"></div> 
+				<div class="ss-form-container" id="form-container">
+				
+					<form id="contact" action="" method="POST" target="fake-target" onsubmit="this.action='https://spreadsheets0.google.com/spreadsheet/formResponse?formkey=dEJvX1J3VUx4Wm03VEpvUlN3c2N2OGc6MQ'; custommsg(); return true;">
+
+						<fieldset>
+							<legend>RSVP</legend>
+							<ul class="checklist">
+								<li>
+									<input name="entry.2.group" value="bread" type="checkbox" id="group_2_1"/>
+									<a class="checkbox-select" href="#"><span/></a>
+									<a class="checkbox-deselect" href="#"><span/></a>
+								</li>
+								<div class='options'>I'll bring Bread</div>
+								<div class='spacer'></div>
+								<li>
+									<input name="entry.2.group" value="jam" type="checkbox" id="group_2_2"/>
+									<a class="checkbox-select" href="#"><span/></a>
+									<a class="checkbox-deselect" href="#"><span/></a>
+								</li>
+								<div class='options'>I'll bring Jam</div>
+								<div class='spacer'></div>			
+								<li>
+									<input name="entry.2.group" value="project" type="checkbox" id="group_2_3"/>
+									<a class="checkbox-select" href="#"><span/></a>
+									<a class="checkbox-deselect" href="#"><span/></a>
+								</li>
+								<div class='options'>I'll bring a toast-inspired Project/Performance</div>
+								<div class='spacer'></div>
+							</ul>
+
+
+								<p>If you checked Project/Performance, tell everyone a bit more about it:</p>
+
+								<input  tabindex="1" type="text" name="entry.3.single" id="entry_0" value="Project title">
+								<div class='minispacer'></div>
+
+								<input  tabindex="1" type="text" name="entry.4.single" id="entry_1" value="Short description">
+								<div class='spacer'></div>
+
+
+
+							<input  tabindex="1" type="text" name="entry.0.single" id="entry_0" value="Name">
+							<div class='minispacer'></div>
+
+							<input  tabindex="1" type="text" name="entry.1.single" id="entry_1" value="Email">
+							<div class='spacer'></div>
+
+
+							<button class="sendit" type="submit" name="submitbutton" title="Submit the form">RSVP</button>
+
+						</fieldset>		
+
+
+					</form>
+				
+				</div>
+
+			</div>
+
+
+
+
+	</div>
+
+
+	<div id="about" class="content">
+	  <h3>About</h3>
+		<p>
+			Toast Expo is the second installment in an annual festival concerning food+drink as a creativity medium. This year, we are inviting the makers of bread, jam, and toast-inspired works to gather and exchange. <br /><br /> 
+			The Toast Expo seeks:<br/><br/>
+			<ul>
+			<li>Makers of bread</li><br/>			
+			<li>Makers of jam</li><br/>
+			<li>Owners or operators of toasters</li><br/>
+			<li>Artists whose work derives from toast or toasters</li><br/>
+			<li>Toast scholars</li><br/>
+			</ul>
+		</p>
+	</div>
+
+	<div id="logistics" class="content">
+	  <h3>Logistics</h3>
+		<p>
+			Saturday July 16, 2011 <br />
+			2pm <br />
+			Location TBA <br />
+		</p>
+	</div>
+
+
+	<div id="program" class="content">
+    <h3>Program</h3>
+		<p>
+			<strong>Symposia of Bread + Jam Makers:</strong><br/>
+			Open sharing and discourse of all theory, practice, research, and experience regarding the production and consumption of toast.  Bread and Jam makers are invited to present and share their techniques and wares in an open-floor format.<br/><br/>
+
+			<strong>Presentation of White Papers:</strong><br/>
+			Oral presentations of an opinion on toast with the possibility of audience discussion. These should be submitted individually, and the program committee will organize them into topically coherent sessions, depending on the number of symposia and available space.<br/><br/>
+
+			<p id="worksonview">			
+					<strong>Works on View:</strong><br/><br/>
+			
+			</p>
+
+
+		</p>
+	</div>
+
+	<p><a href="#top" class="scrolltoanchor">&uarr; Back to top</a> </p>
+
+ </div>
+
+
+
+</body>
+
+</html>
+
+
