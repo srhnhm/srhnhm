@@ -1,0 +1,262 @@
+<html>
+	<head>
+		
+		<title>pointsources</title>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+
+		<style>
+			body {
+				overflow:hidden;
+				margin:0px;
+				padding:0px;
+				background-image:url('checker.png');
+			}
+
+			#bg {
+				margin:20%;
+				
+				background-repeat: repeat;
+			}
+
+			#fixedwindow {
+				width:100%;
+				height:100%;
+				position:fixed;
+				top:0px ;
+				left:0px;
+			}
+
+			#map {
+				position:relative;
+				width:50%;
+				height:50%;
+				left:25%;
+				top:25%;
+				background-color:rgba(0,0,0,.2);
+				border:2px solid #333;
+			}
+
+			span {padding:2px 10px;}
+		</style>
+	
+	
+	</head>
+
+	<body>
+		<svg id="bg"></svg>
+		<div id="fixedwindow">
+			<svg style="display:inline-block" id="map"></svg>
+			<div style="position:absolute; top:10px; right:30px; background-color:white"><span id="statusmsg" style="background-color:red; color:white">Loading the audio....</span><span>spacebar is mute</span></div>
+
+		</div>
+		<script type="text/javascript" src='buffer-loader.js'></script>
+		<script type="text/javascript">
+
+
+			var mapX;
+			var mapY;
+			var scale = 10;  //30bg:1map
+			function moveBG(_mapX, _mapY) {
+				window.scrollTo(_mapX*scale, _mapY*scale);
+			}
+
+
+			$('#bg').width(scale*$('#map').width())
+			$('#bg').height(scale*$('#map').height())
+			moveBG(($('#bg').width()/2), ($('#bg').height()/2))
+			
+
+			var tracks = [
+				{
+					x: 25, 
+					y: 30,
+					r: 100,
+					w: 100,
+					h: 100,
+					color: '#000000',
+					file: 'sounds/sound.wav'
+				},{
+					x: 32, 
+					y: 60,
+					r: 200,
+					w: 200,
+					h: 50,
+					color: '#ffaa00',
+					file: 'sounds/tropez.wav'
+				},{
+					x: 70, 
+					y: 60,
+					w: 80,
+					h: 30,
+					color: '#0022ff',
+					file: 'sounds/zirkus.wav'
+				},{
+					x: 45, 
+					y: 30,
+					r:15,
+					w: 15,
+					h: 25,
+					color: '#000000',
+					file: 'sounds/daylight.wav'
+				},{
+					x: 85, 
+					y: 40,
+					f:70,
+					w: 70,
+					h: 65,
+					color: '#ffaa00',
+					file: 'sounds/wouh.wav'
+				}
+			]
+
+
+		var outerradius = 100;
+		var innerradius = 10;
+
+			d3.select('#map')
+				.selectAll('circle.outer')
+				.data(tracks)
+				.enter()
+				.append('circle')
+				.attr('class', 'outer')
+				.attr('cx', function(d) {return d.x+"%"})
+				.attr('cy', function(d) {return d.y+"%"})
+				.attr('r', function(d) {return outerradius})
+				.attr('fill', function(d) {return 'rgba(0,0,0,.2)'})
+
+			d3.select('#map')
+				.selectAll('circle.inner')
+				.data(tracks)
+				.enter()
+				.append('circle')
+				.attr('class', 'inner')
+				.attr('cx', function(d) {return d.x+"%"})
+				.attr('cy', function(d) {return d.y+"%"})
+				.attr('r', function(d) {return innerradius})
+				.attr('fill', function(d) {return 'rgba(0,0,0,1)'})
+
+
+			d3.select('#bg')
+				.selectAll('circle.bgouter')
+				.data(tracks)
+				.enter()
+				.append('circle')
+				.attr('class', 'bgouter')
+				.attr('cx', function(d) {return d.x+"%"})
+				.attr('cy', function(d) {return d.y+"%"})
+				.attr('r', function(d) {return outerradius*scale})
+				.attr('fill', function(d) {return 'rgba(0,0,255,.2)'})
+			d3.select('#bg')
+				.selectAll('circle.bginner')
+				.data(tracks)
+				.enter()
+				.append('circle')
+				.attr('class', 'bginner')
+				.attr('cx', function(d) {return d.x+"%"})
+				.attr('cy', function(d) {return d.y+"%"})
+				.attr('r', function(d) {return innerradius*scale})
+				.attr('fill', function(d) {return 'rgba(0,0,255,.5)'})
+			
+
+			$('#map').on({
+			    mousemove: function(e) {
+			    	mapX = e.offsetX;
+			    	mapY = e.offsetY;
+			    	moveBG(mapX, mapY);
+			    	
+			    }
+			});
+
+
+// //////////////////////////////////
+
+		var context;
+		var bufferLoader;
+		var bufferArray; 
+		var mute = false;
+
+		var tracksfilelist = []
+		for (var t=0; t<tracks.length; t++) {tracksfilelist.push(tracks[t].file)}
+
+
+		function init() {
+		  context = new webkitAudioContext();
+		  bufferLoader = new BufferLoader(context, tracksfilelist, finishedLoading);
+		  bufferLoader.load();
+		}
+
+		function finishedLoading(bufferList) {
+		  bufferArray = new Array(bufferList.length-1)
+		  for (var i=0; i< bufferList.length; i++) {
+			bufferArray[i] = {
+				voice: context.createBufferSource(),
+				volume: context.createGainNode()
+			} 
+			bufferArray[i].voice.buffer = bufferList[i];
+			bufferArray[i].voice.connect(bufferArray[i].volume);
+			bufferArray[i].volume.connect(context.destination);
+			bufferArray[i].voice.loop = true;
+			bufferArray[i].voice.noteOn(0);
+			bufferArray[i].volume.gain.value = 0; //init the volume to zero
+		  }
+		  $('#statusmsg').text("ok!  it's ready now.").css('background-color', 'green')
+
+		}
+		
+		window.onload = init;
+
+
+		function muteGains(){
+			for (var j=0; j<bufferArray.length; j++){
+				bufferArray[j].volume.gain.value = 0
+			}
+		}
+
+		function trackGains(e){
+			var mousex = e.offsetX;
+			var mousey = e.offsetY;
+			var mapwidth = $('#map').width();
+			var mapheight = $('#map').height();
+
+
+			for (var j=0; j<bufferArray.length; j++){
+				console.log(e)
+				var dx = mousex-(mapwidth*tracks[j].x/100);
+				var dy = mousey-(mapheight*tracks[j].y/100);
+				var d = Math.sqrt((dx*dx)+(dy*dy));
+				if (d <= outerradius) {
+					bufferArray[j].volume.gain.value = (outerradius-d)/outerradius;
+				} else {bufferArray[j].volume.gain.value = 0;}
+			}
+		}
+
+		$('#map').on({
+			mousemove: function(e){
+				if (mute == false) {
+					trackGains(e);
+				}
+		    }
+		});
+
+		$('body').on({
+		    keypress: function(e){
+		    	if (e.which ==  32) {
+		    		if (mute == true) {
+		    			mute = false;
+		    			trackGains(e);
+		    		} else {
+		    			mute = true;
+		    			muteGains();
+		    		}
+		    	}
+		    }
+		});
+
+
+
+		</script>
+	</body>
+
+</html>
