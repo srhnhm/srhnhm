@@ -1,0 +1,311 @@
+
+h3 {
+	line-height:36px;
+}
+
+#vis {
+	/*padding:0px 40px;*/
+		/*margin-bottom:40px;*/
+	display:block;
+	position:relative;
+}
+
+#graph, #graph-wrapper {
+	width:100%;
+	height:100%;
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+
+#graph {
+	width:95%;
+	right:-1%;
+}
+
+#graph-background {
+	height:inherit;
+	display:block;
+	position: relative;
+	right: 0px;
+}
+
+#y-axis {
+	height:inherit;
+	text-align:right;
+	display:inline-block;
+	float:left;
+	border-right:1px solid #b3b3b3;
+	width:5%;
+	padding-right:1%;
+}
+
+
+.y-axis-label {
+	position:relative;
+	text-align:right;
+	width:inherit;
+	display:block;
+	line-height:1px;
+	letter-spacing:1px;
+	width:100%;
+}
+
+.y-axis-lines {
+	/*height:10px;*/
+	border-bottom: 1px solid #E6E6E6;
+	display: block;
+	position: absolute;
+	width:94%;
+	right:0px;
+	/*width: inherit;*/
+}
+
+#summary-bar {
+	position: relative;
+}
+
+
+.day {
+	position:absolute;
+	height:100%;
+	width:24%;
+	border-left:1px solid transparent;
+	border-right:1px solid transparent;
+
+}
+
+.day-summary {
+	height:25%;
+	position:absolute;
+	bottom:0px;
+	width:100%;
+	border-top: 1px solid #b3b3b3;
+
+}
+.day-summary > div {
+	width:inherit;
+	display:inline-block;
+	text-align:center;
+	line-height:200%;
+}
+
+.day-date {
+	height:20% !important;
+	font-size:15px;
+}
+.day-date > span:first-child {
+	margin-right:5px;
+}
+
+.day-donation-total {
+
+	height:50%;
+}
+
+
+.day-hourly-wage {
+	height:20%;
+}
+
+
+#graph-body {
+	height:100%;
+	position:absolute;
+	top:0px;
+	margin-left:90px;
+}
+
+
+.ride {
+	background-color:#A9CBEA;
+	display:block;
+	width:90%;
+	margin:0px 5%;
+	position:absolute;
+	border:1px solid #fff;
+	min-height:4px;
+	cursor:pointer;
+}
+
+.timeblock {
+	background-color:#E2E2E2;
+	display:block;
+	width:90%;
+	margin:0px 5%;
+	position:absolute;
+	border:1px solid #fff;
+	min-height:4px;
+
+}
+
+
+/*SELECTED DAY*/
+.selected-day{
+	background:rgba(255, 228, 169, .2);
+	border-color:#b3b3b3;
+}
+
+.selected-day > .day-summary > .day-date{
+	background-color:#FE7D49;
+	color:#ffffff;
+
+}
+
+.selected-ride {
+	background-color:#67677F;
+}
+
+
+/* #Media Queries
+================================================== */
+		#vis {
+			height:600px;
+		}	
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {
+		.day-date {
+			height:30%;
+			font-size:13px;
+		}
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+		#vis {
+			height:450px;
+		}
+		.y-axis-label {
+			letter-spacing:1px;
+		}
+		.day-date {
+			height:30%;
+			font-size:13px;
+		}
+	}
+
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+		#vis {
+			height:300px;
+		}		
+		.y-axis-label {
+			letter-spacing:0px;
+		}
+
+		.day-donation-total {
+			height:30%;
+			font-size:20px;
+		}
+		.day-hourly-wage {
+			font-size:12px;
+		}
+		.day-date {
+			height:30%;
+			font-size:11px;
+		}
+
+	}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {
+		.y-axis-label {
+			letter-spacing:0px;
+		}
+
+	}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {
+		.y-axis-label {
+			letter-spacing:-1px;
+		}
+
+		.day-date > span:first-child {
+			display:none;
+		}
+
+	}
+
+
+
+/*#vis > div:first-child {
+	height:1em;
+	background-color:#9393a5;
+	border-top: 1px solid #67677F;
+	border-bottom: 1px solid #67677F;
+}
+*/
+/*
+#vis {
+	padding:0px 40px 0px 80px;
+}
+
+#vis > div {
+	position:relative;
+	float:left;
+	display:inline-block;
+	height:100%;
+}
+
+#y-axis {
+	width:20px;
+	margin:0px 20px 0px -40px;
+}
+
+.y-axis-label {
+	position:absolute;
+	text-align:right;
+	width:100%;
+}
+
+.y-axis-label > span {
+	font-size:10px;
+	color:#B3B3B3;
+}
+
+
+
+.y-axis-lines {
+	border-top: 1px solid #CCC;
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	margin-top:10px;
+}
+
+#day-graph {
+	
+	width:100%;
+}
+
+.day-graph-entry {
+	width:25%;
+	height:100%;
+}
+
+.rideblock-wrapper {
+	width:100%;
+	height:100%;
+	position:relative;
+}
+
+.rideblock {
+	background-color:#A9CBEA;
+	display:block;
+	width:90%;
+	margin:0px 5%;
+	position:absolute;
+	border:1px solid #fff;
+	min-height:4px;
+}
+
+.rideblock .selected {
+
+}
+*/
+
+/*TYPOGRAPHY*/
+

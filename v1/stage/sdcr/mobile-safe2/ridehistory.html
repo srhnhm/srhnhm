@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Sidecar: a whole new way to get around</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="css/profile/base.css">
+	<link rel="stylesheet" href="css/profile/skeleton.css">
+	<link rel="stylesheet" href="css/profile/layout.css">
+	<link rel="stylesheet" href="css/profile/custom.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Scripts
+	================================================== -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+
+	<script type="text/javascript" src="//use.typekit.net/dnj3enb.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+	<div id="m-topwrapper" class="m-gradient-header"></div>
+	<div class="container">
+	
+
+			
+
+			<div id="m-top">
+				<div id="m-logo" class="eight columns"></div>
+				<div id="m-user" class="eight columns">
+
+
+
+					<div id="m-user-photo-wrapper">
+						<div id="m-user-photo"></div>
+					</div>
+
+					<select id="m-nav" onchange="window.location = (window.location.href.split('/').slice(0, -1).join('/')+'/'+this.options[this.selectedIndex].value)">
+						<option value="profile.html">Profile</option>
+						<option selected="selected" value="ridehistory.html?view=list">Ride History</option>
+						<option value="ridehistory.html?view=list">Ride History: List</option>
+						<option value="ridehistory.html?view=fourday">Ride History: Four Day</option>
+						<option value="ridehistory.html?view=month">Ride History: Month</option>
+						<option value="account.html">Account</option>
+						<option value="login.html">Log Out</option>
+					</select>
+
+				</div>
+
+
+			</div>
+
+
+			<div id="content">
+				<div class="content-header sixteen columns">
+
+<!-- 					<div id="view-controls" class="eight columns">
+						<ul id="toggle" class="nav control">
+							<li class="view-selection" id="list"><a>List</a></li>
+							<li class="view-selection selected" id="fourday"><a>4-day</a></li>
+							<li class="view-selection" id="month"><a>Month</a></li>
+						</ul>
+					</div> -->
+
+					<div id="time-controls" class="sixteen columns">
+						<!-- <select><option value="logout">List</option></select> -->
+						<span id="daterange">October 2012</span>
+						
+
+							<input id="time-selection-today" class="time-selection control gradient-control vis-button" type="button" value=">">
+							<input id="time-selection-today" class="time-selection control gradient-control vis-button" type="button" value="<">
+							<input id="time-selection-today" class="time-selection control gradient-control vis-button" type="button" value="Today">
+
+		
+					</div>
+				</div>
+
+
+				<div id="vis" class="sixteen columns">
+				</div>
+
+
+				<div id="rollover" class="text-white">
+					<div id="rollover-text">
+						<div id="rollover-rider" class="data-label"></div>
+						<div id="rollover-details">
+							<div id="rollover-donation" class="control text-white"><img /></div>
+							<div id="rollover-time" class="control text-white floatright"></div>
+							
+						</div>
+					</div>
+				</div>
+
+	
+
+			</div>
+
+			<div id="popup">
+				<div id="popup-top">
+					<!-- <div id="popup-photo"></div> -->
+					<div id="popup-title" class="popup-col2">
+						<div id="popup-rider" class="accent"></div>
+						<div id="popup-stars">
+							<span>★</span>
+							<span>★</span>
+							<span>★</span>
+							<span>★</span>
+							<span>★</span>
+						</div>
+						<div id="popup-block">
+							<div class="block control"></div>
+						</div>
+					</div>
+				</div>
+				<div id="popup-date" class="control text-white"></div>
+				
+				<div id="popup-bottom">
+					<div id="popup-pickup" class="popup-row">
+						<div class="control text-gray floatleft popup-col1 gradient-sideways">Pick up</div>
+						<div class="popup-col2">
+							<div id="popup-pickup-address" class="data-label popup-address"></div>
+							<div id="popup-pickup-time" class="control popup-col3 floatright"></div>
+						</div>
+					</div>
+					<div id="popup-dropoff" class="popup-row">
+						<div class="control text-gray floatleft popup-col1 gradient-sideways">Drop off</div>
+						<div class="popup-col2">
+							<div id="popup-dropoff-address" class="data-label popup-address"></div>
+							<div id="popup-dropoff-time" class="control popup-col3 floatright"></div>
+						</div>
+					</div>
+					<div id="popup-total" class="popup-row">
+						<div id="popup-donation" class="data-xl floatleft popup-col1"></div>
+						<div class="popup-col2">
+							<div id="popup-paid" class="data-label floatleft"></div>
+							<div id="popup-ratio" class="control popup-col3 floatright"></div>
+						</div>
+					</div>
+					
+
+					<div id="popup-average">
+						<div id="" class="floatleft"></div>
+					</div>
+
+				</div>
+				<div id="popup-close"></div>
+			</div>
+			<div id="popup-overlay"></div>
+
+
+
+	</div>
+
+	
+
+
+
+	<script type="text/javascript" src="js/profile/ridehistory-behaviors.js"></script>
+
+
+
+
+</body>
+</html>

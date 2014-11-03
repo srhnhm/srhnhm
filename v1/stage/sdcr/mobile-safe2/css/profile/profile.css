@@ -1,0 +1,378 @@
+li {
+	margin-bottom:0px;
+}
+
+#content {
+	position:absolute !important;
+	top: 42px;
+}
+
+#content.width-restricted > div {
+	max-width:760px;
+}
+
+
+/*#content > div.content-section {
+	margin:0px 40px 40px 40px;
+	display:inline-block;
+	width: 680px;
+}
+*/
+
+
+
+
+.profile-data, .password-data, .login-data {
+	border:1px solid transparent;
+	background-color:transparent;
+
+	-webkit-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 15px;
+	/*padding: 4px 10px;*/
+/*	margin-left:-10px;*/
+	margin-bottom:10px !important;
+
+	line-height: 15px;	
+	color:#4d4d4d;
+}
+
+.profile-data:hover {
+	background-color:#f4f4f8;
+	border:1px solid #B3B3B3;
+	cursor:pointer;
+}
+
+.profile-data:focus, .password-data, .login-data {
+	background-color:#ffffff;
+	border:1px solid #B3B3B3;
+	outline:none;
+	cursor:text;
+	padding:5px;
+}
+
+/*label.profile-data, label.password-data {
+	margin:10px 0px 5px 0px;
+}*/
+
+input.profile-data, textarea.profile-data {
+	border-color:#ccc;
+	padding: 5px;
+
+}
+
+textarea.profile-data {
+	font-size:13px;
+	line-height:18px;
+	/*width:100%;*/
+	overflow:scroll;
+	border-color:#ccc;
+}
+
+.empty-input {
+	border-color:#ccc;
+}
+
+/*
+
+
+#login {
+	width:400px;
+}
+
+.login-data {
+	margin:5px 0px 20px 0px;
+}
+
+#login-message {
+	margin-left:20px;
+	line-height: 40px;
+}
+
+.content-section-onecol > ul  {
+	width:100%;
+	float:left;
+	display:inline-block;
+}
+.content-section-onecol > ul > li  {
+	width:100%;
+	display:inline-block;
+}
+
+.content-section-twocol > ul {
+	width:48%;
+	float:left;
+}
+.content-section-twocol > ul:nth-child(even) {
+	float:right;
+}
+*/
+.content-section > ul.columns {
+	margin-left:0px;
+}
+
+.content-section > ul > li  {
+	width:100%;
+	display:inline-block;
+}
+
+.content-section > ul > li > label {
+	width:100%;
+	display:inline-block;
+	margin-top: 5px;
+	line-height: 20px;
+}
+
+.content-section > ul > li > input  {
+	width:80%;
+	display:inline-block;
+
+}
+
+.content-section > ul > li > textarea  {
+	width:100%;
+	margin-left:-5px;
+	height:1em;
+	display:inline-block;
+}
+
+
+div.content-header {
+	width:100%;
+	display:inline-block;
+	position:relative;
+	margin:20px 0px 5px 0px !important;
+	border-bottom:1px solid #CCC;
+}
+.content-section > ul > li > label  {
+	color: #B9B9C9;
+	font-size: 13px;
+	text-transform: uppercase;
+	font-family: 'proxima-nova-alt-condensed';
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+
+
+.content-section > ul > li > label.saved-label {
+	display: inline;
+	margin-left:10px;
+	text-transform: none;
+	font-weight: normal;
+	color: #67677F;
+	font-family: 'myriad-pro';
+}
+
+.content-section-twocol > ul > li.password-fields {
+	display:none;
+}
+
+
+.password-data {
+	letter-spacing: 3px;
+	padding:0px 5px !important;
+}
+
+#password-message {
+	margin-left: -10px;
+	margin-top: 10px;
+}
+
+
+
+/* PHOTO STUFF */
+#content > div#profile-photos {
+	height:100px;
+	/*left:-20px;*/
+	/*padding: 0px 20px;*/
+	/*margin-bottom: 20px;*/
+
+	background:url('/stage/sdcr/mobile/images/imgs/mapbg.png');
+	background-size:cover;
+
+	/*display: block;*/
+}
+
+div#profile-photos > #profile-field-Name {
+	position: absolute;
+	left: 10px;
+	top: 40px;
+	font-family: "myriad-pro";
+	font-weight: normal;
+	color: #4D4D4D;
+	font-size: 22px;
+}
+
+
+#profile-field-Rating {
+    position: left:400px;
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    width:100px;
+    height:16px;
+    
+}
+
+.stars-decimal {
+	position:absolute;
+	left:0px;
+	overflow:hidden;
+    width:inherit;
+    height:inherit;
+}
+
+.stars-bottom {
+	background-image:url("/stage/sdcr/mobile/images/imgs/stars-bottom.png");
+}
+.stars-top {
+	z-index:2;
+	background-image:url("/stage/sdcr/mobile/images/imgs/stars-top.png");
+}
+
+.profile-field-image {
+
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:5;
+	width:inherit;
+	height:inherit;
+	min-height:inherit;
+}
+
+.profile-field-image-wrapper {
+	position:absolute;
+	overflow:hidden;
+	background:#E8E8EE;
+	border:1px solid #B9B9C9;
+}
+
+#profile-userphoto {
+	
+	height:80px;
+	width:80px;
+	right:120px;
+	top:30px;
+	/*bottom:-20px;*/
+}
+
+#profile-carphoto {
+	position:absolute;
+	height:80px;
+	width:100px;
+	right:10px;
+	top:30px;
+	/*bottom:-20px;	*/
+}
+#profile-userphoto img, #profile-carphoto img {
+	height:80px;
+}
+
+.profile-image-upload {
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:80px;
+	margin-top:-10px;
+	margin-left:-40px;
+	z-index:1;
+}
+
+
+#account-images > li {
+	margin-bottom:20px;
+}
+#account-images > li > label {
+	/*width:100%;*/
+	/*margin-bottom:10px;*/
+	display:inline-block;
+	width:100px;
+}
+#account-images > li > input {
+	width:auto;
+	margin-left:0px;
+}
+
+#account-images > li > div {
+	position: relative;
+	display: inline-block;
+	min-height: 100px;
+	width: inherit;
+	overflow: visible;
+}
+
+
+#account-images > li > div > img {
+	width:100%;
+	min-height:100px;
+	height:auto !important;
+	display:inline-block;
+	position:relative;
+	max-width:100%;
+}
+
+
+
+
+
+
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+
+			#content {
+				top: 76px;
+			}
+			#profile-userphoto {
+				
+				height:50px;
+				width:50px;
+				right:90px;
+				top:30px;
+				/*bottom:-20px;*/
+			}
+
+			#profile-carphoto {
+				position:absolute;
+				height:50px;
+				width:62.5px;
+				right:10px;
+				top:30px;
+				/*bottom:-20px;	*/
+			}
+			#profile-userphoto img, #profile-carphoto img {
+				height:50px;
+			}
+
+			.profile-image-upload {
+				position:absolute;
+				top:50%;
+				left:50%;
+				width:80px;
+				margin-top:-10px;
+				margin-left:-40px;
+				z-index:1;
+
+			}
+	}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {}
+
+
+

@@ -1,0 +1,272 @@
+
+/*LIST PAGE*/
+
+#vis {
+	padding:0px;
+	margin-bottom:40px;
+}
+#rowheader {
+	top:36px;
+	position:relative;
+	height:18px;
+	background-color:#9393a5;
+	border-top: 1px solid #67677F;
+	border-bottom: 1px solid #67677F;
+	padding:0px 40px;
+}
+
+.listitem {
+	height:20px;
+	border-top:1px solid #e6e6e6;
+	padding:15px 40px;
+	
+	font-family:"myriad-pro", Helvetica, Arial, sans-serif;
+	font-size:13px;
+	color:#4d4d4d;
+	line-height:18px;
+}
+
+.listitem:nth-child(odd) {
+	background-color:#f5fbff;
+}
+
+
+.listtotals {
+	background-color:#ffffff;
+	border-top:1px solid #67677F;
+	font-weight:bold;
+	font-size:15px;
+
+}
+
+.listitem > div { 
+	overflow:hidden;
+	height:100%;
+	float:left;
+	display:inline-block;
+	margin-right:0.1%;
+
+	/*display:inline-block;*/
+}
+
+.listitem > div.entry-date 				{width: 22%;}
+.listitem > div.entry-name 				{width: 16%;}
+.listitem > div.entry-rating 			{width: 12%;}
+.listitem > div.entry-pickup-dropoff 	{width: 26%;}
+.listitem > div.entry-donation 			{width: 18%;}
+
+.entry-date span {
+	margin-right:5px;
+	display:inline-block;
+	width:60px;
+	height:1em;
+}
+
+
+.listitem .entry-name:hover {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+.listitem > div.entry-block {
+	height:auto;
+	min-height:1px;
+}
+
+.entry-donation {
+	margin-left:2%;
+	text-align:left;
+}
+
+.entry-paid {
+	text-align:center;
+}
+
+.entry-rating > img {
+	margin-right:2px;
+}
+
+.entry-rating > span{
+	cursor:pointer;
+	margin-right:1px;
+	color:#b3b3b3;
+}
+
+.entry-rating > span.rated {
+	color:#FD9267;
+}
+
+.active-rating > span{
+	color:#4d4d4d;
+}
+.active-rating > span.rated {
+	color:#F05323;
+}
+
+
+
+
+.entry-date span {
+	margin-right:10px;
+	display:inline-block;
+	width:60px;
+	height:1em;
+}
+
+.entry-donation span {
+	margin-left:5px;
+	height:1em;
+	display:inline-block;
+}
+
+.listitem > div.entry-donation > span {
+	text-align:right;
+}
+
+.entry-donation span:first-child {
+	width:30px;
+}
+.entry-donation span:nth-child(2) {
+	width:20px;
+}
+.entry-donation span:nth-child(3) {
+	width:55px;
+}
+.entry-donation span img {
+	vertical-align:middle;
+}
+
+
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+
+
+
+
+
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+}
+
+
+
+/*MOBILE*/
+
+@media only screen and (max-width: 767px) {
+
+
+}
+
+
+
+/* MEDIUM   Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.listitem {
+		padding: 15px 10px;
+	}
+
+	.listitem > div.entry-date 	{width:35%;}
+	.listitem > div.entry-name		{width:30%;}
+	.listitem > div.entry-donation	{width:30%;}
+
+	.listitem > div.entry-block,
+	.listitem > div.entry-rating,
+	.listitem > div.entry-pickup-dropoff {
+		display:none;
+	}
+
+
+	.listitem > div.entry-date {
+		width:35%;
+		display:inline-block;
+		overflow:visible;
+	}
+
+
+	.entry-date span:first-child {
+		font-weight:bold;
+		color:#888C99;
+	}
+
+	.listitem > div.entry-name {
+		width:30%;
+		font-weight:bold;
+		color:#67677F;
+	}
+
+
+	.listitem > div.entry-donation {
+		width:30%;
+		overflow:visible;
+	}
+
+	.entry-donation span:nth-child(2) {
+		width:0px;
+		display:none;
+	}
+
+
+
+
+}
+
+
+
+
+/*  SMALLEST    Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	.listitem {
+		padding: 15px 10px 30px 10px;
+	}
+
+	.listitem > div.entry-date {
+		width:25%;
+		display:inline-block;
+		overflow:visible;
+	}
+
+	.entry-date span {
+		margin-right:10px;
+		display:inline-block;
+		width:60px;
+		height:1em;
+	}
+	.entry-date span:first-child { 
+		font-weight:bold;
+		color:#888C99;;
+	}
+	.entry-date span:last-child { 
+		font-size:11px;
+	}
+
+	.listitem > div.entry-name {
+		width:40%;
+		font-weight:bold;
+		color:#67677F;
+	}
+
+	.listitem > div.entry-donation {
+		width:32%;
+		overflow:visible;
+	}
+	.entry-donation span:first-child {
+		width:55px;
+	}
+
+	.entry-donation span:nth-child(2) {
+		width:0px;
+		display:none;
+	}
+
+
+	.listitem > div.entry-rating, 
+	.listitem > div.entry-block, 
+	.listitem > div.entry-pickup-dropoff {
+		display:none;
+	}
+}
+
