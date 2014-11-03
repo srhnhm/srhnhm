@@ -1,0 +1,79 @@
+/**
+ * Demo page styles, all list scroll effects styles are in sctroll.css
+ */
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background: #323232;
+	font-family: 'Lato', Times, 'Times New Roman', serif;
+	font-size: 16px;
+	color: #eee;
+	/*margin-bottom: 40px;*/
+	line-height: 1;
+}
+
+header {
+	background: rgba(0, 0, 0, 0.2);
+	margin-bottom: 30px;
+	padding: 20px 100px 20px 20px;
+	font-size: 20px;
+	line-height: 1.3em;
+}
+
+header div {
+	margin-top: 10px;
+}
+
+a {
+	color: cyan;
+}
+
+article {
+	display: inline-block;
+	margin: 20px;
+}
+
+small {
+	opacity: 0.6;
+	font-style: italic;
+	font-size: 14px;
+	margin-left: 5px;
+}
+
+
+/**
+ * List used for the demo page
+ */
+
+#main {
+	position:relative;
+}
+
+ul {
+	position: fixed;
+	width: 80px;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	list-style: none;
+	background-color:#323232;
+}
+	ul li {
+		position: relative;
+		/*padding: 16px;*/
+		height:10px;
+		background: #eee;
+		color: #252525;
+		font-size: 18px;
+		z-index: 2;
+		background-image:url('static.png');
+		/*background-repeat:no-repeat;*/
+		overflow:hidden;
+	}
+	ul li:nth-child(odd) {
+	}
